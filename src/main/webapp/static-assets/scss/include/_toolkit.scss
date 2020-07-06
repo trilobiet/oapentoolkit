@@ -126,8 +126,9 @@ $steelblue: #1d72aa;
 		}	
 		
 		&>li:before {
-			content: '\f0da';
-			font-family: FontAwesome;
+			content: "\f0da";
+			font-family: $FontAwesome;
+			font-weight: 900;
 			display: inline-block;
 			margin-left: -1em; /* same as padding-left set on li */
 			width: .7em; /* same as padding-left set on li */
@@ -278,7 +279,7 @@ $steelblue: #1d72aa;
 .oapen-summaries {
 	p.oapen-more {
 		margin-top: .5em;
-		@include fa-before('\f0da', 1em, .15em, bottom); 
-	}	
+		@include fa-before('\f0da', 1em, .15em, bottom) {font-weight: 900}; 
+	}
 }	
 
