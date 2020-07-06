@@ -1,0 +1,97 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${article.title}">article title</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-toolkit oapen-toolkit-article oapen-main" th:classappend="${article.cssClass}">
+
+		<div class="container">
+		
+			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+		
+			<div class="columns">
+			
+				<!-- main content -->
+				<div class="column is-three-quarters">
+
+					<article th:fragment="articlefull"
+						class="is-clearfix oapen-article oapen-primary" th:classappend="${article.cssClass}">
+						
+						<div class="columns">
+						
+							<div class="column">
+	
+								<div th:utext="${article.content}" class="content">
+									Article content
+								</div>
+								
+							</div>
+		
+							<div class="column is-one-quarter" th:if="${not #lists.isEmpty(article.media)}">
+
+								<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
+									<a data-fancybox="gallery" th:href="${media.url}">
+										<img th:src="${media.url}" alt="">
+									</a>
+								</figure>
+
+							</div>
+							
+						</div>
+						
+						<div>
+							<th:block th:insert="include/snippets :: snippets"/>
+						</div>	
+	
+					</article>
+					
+					<th:block th:insert="include/toolkitfields :: toolkitmetadata"/>
+					
+					<th:block th:insert="include/attachments :: attachments"/>
+				
+				</div>
+			
+				<!-- sidebar -->
+				<div class="column">
+				
+					<th:block th:insert="include/currentsection :: topics"/>
+					
+					<th:block th:insert="include/relatedarticles :: linked"/>
+
+					<aside th:if="${article.keywords!=''}" class="oapen-section-topics oapen-article-keywords">
+					
+						<h5 class="is-title is-5 oapen-section-caption">Keywords</h5>
+						
+						<ul>
+							<li th:each="keyword, iterStat: ${@viewhelpers.string2list(article.keywords)}">
+								<a th:href="@{'/keywords?keyword='+${@viewhelpers.urlEncode(keyword)}}" 
+							       th:text="${keyword}">
+								keyword
+								</a><span th:if="!${iterStat.last}" th:text="', '"></span>
+							</li>
+						</ul>
+						
+					</aside>
+
+				</div>
+			
+			</div>
+
+		</div>
+
+	</main>
+
+
+</body>
+</html>
+
+
+
+

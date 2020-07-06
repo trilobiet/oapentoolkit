@@ -1,0 +1,53 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>OApen web - Related Articles</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main class="section oapen-main" layout:fragment="content">
+
+		<th:block th:fragment="toolkitmetadata" 
+			th:if="${article.sources!=null || article.references!=null || article.resources!=null}">
+			
+			<div class="oapen-article oapen-toolkit-metadata">
+		
+				<div th:if="${article.sources}" class="content">
+					<h4>Source acknowledgements:</h4>
+					<div th:utext="${article.sources}">
+						Sources
+					</div>
+				</div>
+	
+				<div th:if="${article.references}" class="content">
+					<h4>References:</h4>
+					<div th:utext="${article.references}">
+						References
+					</div>
+				</div>
+	
+				<div th:if="${article.resources}" class="content">
+					<h4>Resources:</h4>
+					<div th:utext="${article.resources}">
+						Resources
+					</div>
+				</div>
+			
+			</div>	
+
+		</th:block>
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+

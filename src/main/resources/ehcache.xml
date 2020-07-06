@@ -1,0 +1,37 @@
+<ehcache xsi:noNamespaceSchemaLocation="ehcache.xsd"
+	updateCheck="true"
+	monitoring="autodetect"
+	dynamicConfig="true"
+	maxBytesLocalHeap="200M">
+
+	<diskStore path="java.io.tmpdir"/>
+	<sizeOfPolicy maxDepth="10000" maxDepthExceededBehavior="continue"/>
+	
+	<!-- Total of added caches may not exceed maxBytesLocalHeap of entire cache -->
+	
+	<cache name="tkSectionsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="330"
+		overflowToDisk="true"/>
+	
+	<cache name="tkTopicsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="300"
+		overflowToDisk="true"/>
+	
+	<cache name="tkArticlesCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="270"
+		overflowToDisk="true"/>
+		
+	<cache name="tkFilesCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="36000"
+		overflowToDisk="true"/>
+
+	<cache name="tkKeywordsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="36000"
+		overflowToDisk="true"/>
+
+</ehcache>

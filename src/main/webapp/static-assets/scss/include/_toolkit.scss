@@ -1,0 +1,284 @@
+
+$purple: #a320db;
+$steelblue: #1d72aa;
+
+
+.topnav .oapen-btn-toolkit {
+    background-color: orange;
+    border-color: transparent;
+    color: white;
+}
+
+
+.oapen-home-toolkit {
+ 	
+ 	padding-top: 0;
+ 	padding-bottom: 0;
+ 	margin-top: 1.5rem;
+ 	margin-bottom: 1.5rem;
+ 	
+ 	background: #ffa500cc;
+ 	
+ 	.column {
+ 		
+ 		background: orange;
+ 		
+	 	&:first-child {
+	 		text-align: right;
+	 		padding: 3.5rem 5% 3.5rem 1rem; 
+	 	}	
+
+	 	&:last-child {
+	 		padding-top: 3.5rem;	
+	 		padding-bottom: 3.5rem;
+	 		padding-right: 2rem;
+	 	}	
+ 	}	
+ 
+ 	.oapen-toolkit-title {
+ 		font-family: Roboto Slab;
+ 		//font-weight: 500;
+ 		color: #fff;
+ 		
+ 		h1 {
+	 		font-size: 3rem;
+ 		}		
+ 		h4 {
+ 			font-size: 1.6rem;
+ 			font-weight: 400;
+ 			opacity: .75;
+ 		}	
+ 		
+ 		span { 
+ 			opacity: .75;
+ 			font-weight: 400;
+ 		}
+ 	
+ 		.oapen-toolbox-icon {
+	 		display: block;
+	 		margin-top: 10px;
+		 	img {
+		 		filter: invert(100%);
+		 		opacity: .8;
+		 		width: 25%;
+		 	}	
+	 	}	
+ 	
+ 	}	
+ 
+ 	.oapen-browseby {
+ 		margin: 0 1rem .5rem 0;
+ 		color: black;	
+ 	}	
+ 
+ 	.oapen-toolkit-buttons {
+ 		
+ 		margin-top: 1em;
+ 		padding-top: 1em;
+ 		
+ 		.button {
+ 			color: white;
+ 			border-width: 0;
+ 		}
+ 	
+ 		.button:nth-of-type(1) {
+ 			background-color: hsl(204, 71%, 39%);
+ 		}
+ 		.button:nth-of-type(2) {
+ 			background-color: hsl(348, 86%, 43%);
+ 		}
+ 		.button:nth-of-type(3) {
+ 			background-color: hsl(141, 53%, 31%);
+ 		}
+ 			
+ 	}	
+ 	
+ 	.title {
+ 		color: #000;
+ 	}	
+ 	
+}	
+
+.oapen-home-lifecycle {
+	
+	.oapen-cycle {
+		display: block;
+		margin: auto;
+		max-width: 400px;
+	}	
+	
+	h1 {
+		color: $steelblue;
+	}		
+
+	.oapen-toolkit-tree ul.oapen-toolkit-topiclist {
+		
+		list-style: none;
+		padding: 0;
+		
+		&>li {
+			//padding-left: 1.3em;
+			
+			&>a {
+				color: $steelblue;
+				font-family: "Roboto Slab";
+			}	
+		}	
+		
+		&>li:before {
+			content: '\f0da';
+			font-family: FontAwesome;
+			display: inline-block;
+			margin-left: -1em; /* same as padding-left set on li */
+			width: .7em; /* same as padding-left set on li */
+		}		
+	
+		&>li.is-foldout:before {
+			content: '\f0d7';
+		}	
+	
+		.oapen-toolkit-dropdown {
+			
+			background: #f3f3f3;
+			padding: .5em .2em;
+			margin: 1em 0 1em -1.1em;
+			
+			ul {
+				list-style: disc;
+				font-size: 90%	
+			}	
+		
+			a {
+				color: black;	
+				&:hover {
+					color: $steelblue;
+				}	
+				cursor: pointer;
+			}	
+		}
+	}	
+
+
+}
+
+.oapen-keywords {
+
+	.oapen-keywords-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;	
+		column-count: 3;
+		column-width: 15em;
+		column-gap: 2em;
+	}		
+
+	.oapen-keyword-letter {
+		margin-bottom: 2rem;	
+		@include column-break(inside, avoid);
+
+		ul {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;	
+		}	
+	}
+
+	.oapen-keyword-results {
+		list-style: none;
+		margin: 0;
+		padding: 0;	
+		
+		li {
+			margin-bottom: 1.4em;	
+		}
+	
+		h4 {
+			margin-bottom: 0.2em;	
+		}		
+	}	
+	
+}	
+
+
+.content {
+
+	h1 {
+		color: orange;	
+	}		
+}	
+
+.oapen-primary {
+	border-top: solid 8px orange;	
+}
+
+
+.oapen-toolkit-topic {
+
+	.oapen-toolkit-summary {
+		margin: 2rem 0 2rem 0;
+		padding: 2rem 0 0 0;
+		border-top: solid 1px #ccc;	
+	}	
+	
+}	
+
+.oapen-toolkit-metadata {
+	
+	//@media screen and (min-width: 1024px) {
+		padding: 2rem;
+	//}
+
+	background-color: #666;
+	color: white;
+	h1,h2,h3,h4,h5,h6 {
+		color: orange;	
+	}	 
+	a {
+		color: wheat;	
+	}	 
+			
+}	
+
+.oapen-article-keywords {
+	
+	li {
+		display: inline;
+	}	 
+	
+	a {
+		white-space: nowrap;
+	}		
+}	
+
+.content .oapen-faq-list {
+
+	list-style: none;
+	margin: 0;
+
+	.oapen-faq {
+		margin: 2rem 0;
+	}
+	
+	.oapen-faq-question {
+	}
+
+	.oapen-faq-answer {
+		background: transparent;
+		//font-size: 90%;
+		padding: .5em 1.5em;
+		opacity: .7;
+	}		
+
+	.oapen-faq-readmore {
+		margin-top: 1em;
+	}		
+		
+}
+
+.oapen-summaries {
+	p.oapen-more {
+		margin-top: .5em;
+		@include fa-before('\f0da', 1em, .15em, bottom); 
+	}	
+}	
+

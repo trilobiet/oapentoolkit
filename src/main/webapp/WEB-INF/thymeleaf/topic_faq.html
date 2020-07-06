@@ -1,0 +1,91 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${topic.name}">topic name</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
+
+		<div class="container">
+		
+			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+		
+			<div class="columns">
+			
+				<!-- main content -->
+				<div class="column is-three-quarters"> 
+				
+					<div class="content oapen-primary">
+
+						<h1 th:text="${topic.name}">
+							Topic title
+						</h1>
+		
+						<div th:if="${topic.description}" th:utext="${topic.description}" 
+						     class="topic" th:classappend="${topic.cssClass}">
+		
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit.
+							</p>
+		
+						</div>
+						
+						<ul class="oapen-faq-list">
+						
+							<!-- a faq -->
+							<li th:each="article: ${articles}" class="oapen-faq">
+
+								<h4 th:text="${article.title}" class="oapen-faq-question">
+									Question: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Praesent?
+								</h4>
+
+								<blockquote class="oapen-faq-answer">
+									<div th:utext="${article.summary}">
+										Answer: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+									</div>
+									<div class="oapen-faq-readmore" th:if="${article.content}">
+										<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
+											<i class="fas fa-caret-right"></i> read more
+										</a>
+									</div>
+								</blockquote>
+								
+							</li>
+
+						</ul>
+						
+					</div>	
+					
+				</div>	
+					
+				<!-- sidebar -->
+				<div class="column">
+				
+					<th:block th:insert="include/currentsection :: topics"/>
+				
+				</div>
+
+			</div>
+			
+		</div>	
+
+	</main>
+
+</body>
+</html>
+
+
+
+

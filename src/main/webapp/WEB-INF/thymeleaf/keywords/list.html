@@ -1,0 +1,57 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Keywords</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
+	<main layout:fragment="content" class="oapen-main oapen-keywords oapen-toolkit">
+
+		<div class="section">
+
+			<div class="container">
+			
+				<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+
+				<div class="content oapen-primary">
+
+					<h1>Keywords</h1>
+					
+					<p>
+						Search OA Toolkit content through keywords.
+					</p>
+					
+					<hr/>
+					
+					<ul class="oapen-keywords-list">
+						<li th:each="letter: ${keywords}" class="oapen-keyword-letter">
+							<h4 th:text="${letter.key}">A</h4>
+							<ul>
+								<li th:each="keyword: ${letter.value}">
+									<a th:href="@{'/keywords?keyword='+${@viewhelpers.urlEncode(keyword)}}" th:text="${keyword}">keyword</a>
+								</li>	
+							</ul>
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
+</body>
+</html>
+
+
+
+

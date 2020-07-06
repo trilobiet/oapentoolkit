@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="lifecycle">
+
+	<div class="columns is-centered is-vcentered is-variable is-8">
+
+		<div class="column is-one-third-desktop">
+		
+			<div class="oapen-cycle">
+			
+				<img th:src="@{/static-assets/images/lifecycleblue.svg}" alt="toolkit lifecycle" /> 
+				
+			</div>	
+
+		</div>
+
+		<div class="column is-one-third-desktop oapen-toolkit-tree">
+		
+			<div class="content">
+
+				<h1>Research life cycle</h1>
+				
+				<p>
+					Hier kom die lifecycle skema in die vorm van 'n sirkel. Die staan presies in die middel.
+				</p>
+				
+				<ul class="oapen-toolkit-topiclist">
+					<li th:each="topic:${toolkittopics}">
+
+						<a th:href="@{'/toolkit/'+${topic.slug}}"
+						   th:text="${topic.name}">topic name</a>
+						   
+						<div class="clickloader is-hidden oapen-toolkit-dropdown" th:data-src="@{'/toolkit/listtopic/'+${topic.slug}} + '/?rows=4 #ArticleList'">
+						</div>
+						   
+					</li>
+				</ul>
+				
+			</div>	
+
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

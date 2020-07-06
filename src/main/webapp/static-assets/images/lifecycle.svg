@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200mm" height="200mm" style="enable-background:new" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style>.captions {
+    font-size:7.76109982px;
+    font-family:Roboto;
+    font-weight:500;
+    letter-spacing:0px;
+    text-anchor:middle;
+    word-spacing:0px;
+    stroke-width:0.26458001px;
+    fill:#000000;
+}</style>
+ <defs>
+  <pattern id="q" patternTransform="translate(379.22 -217.12)" xlink:href="#z"/>
+  <pattern id="z" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="h" patternTransform="matrix(.2623 -.034665 .034665 .2623 -63.281 -18.766)" xlink:href="#n"/>
+  <pattern id="n" patternTransform="translate(379.22 -217.12)" xlink:href="#w"/>
+  <pattern id="w" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="e" patternTransform="matrix(.20136 .17163 -.17163 .20136 116.04 -89.142)" xlink:href="#k"/>
+  <pattern id="k" patternTransform="translate(379.22 -217.12)" xlink:href="#t"/>
+  <pattern id="t" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="a" patternTransform="matrix(.0073026 .26448 -.26448 .0073026 288.92 -1.7507)" xlink:href="#m"/>
+  <pattern id="m" patternTransform="translate(379.22 -217.12)" xlink:href="#v"/>
+  <pattern id="v" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="c" patternTransform="matrix(-.16645 .20567 -.20567 -.16645 341.9 154.7)" xlink:href="#j"/>
+  <pattern id="j" patternTransform="translate(379.22 -217.12)" xlink:href="#y"/>
+  <pattern id="y" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="g" patternTransform="matrix(-.26155 .039955 -.039955 -.26155 276.47 312.35)" xlink:href="#p"/>
+  <pattern id="p" patternTransform="translate(379.22 -217.12)" xlink:href="#x"/>
+  <pattern id="x" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="f" patternTransform="matrix(-.21377 -.15591 .15591 -.21377 110.81 385.3)" xlink:href="#i"/>
+  <pattern id="i" patternTransform="translate(379.22 -217.12)" xlink:href="#u"/>
+  <pattern id="u" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="d" patternTransform="matrix(-.018166 -.26396 .26396 -.018166 -72.554 305.79)" xlink:href="#l"/>
+  <pattern id="l" patternTransform="translate(379.22 -217.12)" xlink:href="#s"/>
+  <pattern id="s" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+  <pattern id="b" patternTransform="matrix(.14629 -.22046 .22046 .14629 -131.45 164.8)" xlink:href="#o"/>
+  <pattern id="o" patternTransform="translate(379.22 -217.12)" xlink:href="#r"/>
+  <pattern id="r" width="1257.5073" height="1147.8996" patternTransform="matrix(.26458 0 0 .26458 -26.309 -25.678)" patternUnits="userSpaceOnUse">
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="319.21" fill="#a320db" fill-opacity=".99541" stroke-width="0"/>
+   <circle transform="rotate(-32.688)" cx="76.523" cy="893.05" r="291.61" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="290.77" y="392.73" width="321.25" height="556.75" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="122.9" y="710.36" width="239.13" height="278.98" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="221.93" y="860.11" width="2.4154" height="77.293" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="64.932" y="676.54" width="263.28" height="316.42" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-49.88)" x="-60.308" y="564.56" width="82.634" height="92.822" ry="0" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-296.31" y="461.77" width="454.64" height="685.17" fill="#fff" stroke-width="0"/>
+   <rect transform="rotate(-32.688)" x="-141.03" y="821.97" width="818.04" height="451.44" fill="#fff" stroke-width="0"/>
+  </pattern>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-5.7557 -47.105)">
+  <path d="m16.782 115.17 19.411 12.88 28.571-43.058-19.411-12.88z" style="fill:url(#b)"/>
+  <path d="m71.548 60.324 3.0522 23.095 51.229-6.7703-3.0522-23.095z" style="fill:url(#h)"/>
+  <path d="m147.56 63.961-15.112 17.729 39.327 33.521 15.112-17.729z" style="fill:url(#e)"/>
+  <path d="m196.29 124.16-23.287 0.64297 1.4262 51.655 23.287-0.64297z" style="fill:url(#a)"/>
+  <path d="m189.65 190.11-18.108-14.655-32.508 40.168 18.108 14.655z" style="fill:url(#c)"/>
+  <path d="m140.07 236-3.5179-23.029-51.082 7.8033 3.5179 23.029z" style="fill:url(#g)"/>
+  <path d="m67.804 235.02 13.727-18.822-41.75-30.45-13.727 18.822z" style="fill:url(#f)"/>
+  <path d="m14.826 176.18 23.241-1.5994-3.5478-51.552-23.241 1.5994z" style="fill:url(#d)"/>
+ </g>
+ <g class="captions" transform="translate(-6.7141 -46.984)" font-size="7.7611px" font-weight="500" letter-spacing="0px" word-spacing="0px">
+  <text x="64.512695" y="70.554207" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(7);" xml:space="preserve"><tspan x="65.482834" y="70.554207" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Planning </tspan><tspan x="65.482834" y="79.091431" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">and </tspan><tspan x="64.512695" y="87.628654" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">funding</tspan></text>
+  <text x="130.80795" y="66.990616" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(0);" xml:space="preserve"><tspan x="130.80795" y="66.990616" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Conduct</tspan><tspan x="130.80795" y="76.303947" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">research</tspan></text>
+  <text x="179.34343" y="108.90895" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(1);" xml:space="preserve"><tspan x="180.31357" y="108.90895" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Consider </tspan><tspan x="180.31357" y="118.22228" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">publishing </tspan><tspan x="179.34343" y="127.53562" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">options</tspan></text>  
+  <text x="151.40904" y="221.82433" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(3);" xml:space="preserve"><tspan x="151.40904" y="221.82433" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Peer review</tspan></text>  
+  <text x="27.604092" y="123.83807" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(6);" xml:space="preserve"><tspan x="28.57423" y="123.83807" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Research </tspan><tspan x="27.604092" y="133.15141" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">is reused</tspan></text>
+  <text x="31.097048" y="177.73819" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(5);" xml:space="preserve"><tspan x="31.097048" y="177.73819" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Book is</tspan><tspan x="31.097046" y="187.05153" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">published &amp;</tspan><tspan x="31.097048" y="196.36485" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">disseminated</tspan></text>
+  <text x="81.182861" y="223.59189" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(4);" xml:space="preserve"><tspan x="81.182861" y="223.59189" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Book</tspan><tspan x="81.182861" y="232.90523" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">contract</tspan><tspan x="81.182861" y="242.21855" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">and licence</tspan></text>
+  <text x="179.76698" y="173.18462" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center" onclick="lifecycle(2);" xml:space="preserve"><tspan x="179.76698" y="173.18462" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">Write &amp; submit</tspan><tspan x="179.76698" y="182.49796" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:110.00000238%;text-align:center">manuscript</tspan></text>
+ </g>
+</svg>
