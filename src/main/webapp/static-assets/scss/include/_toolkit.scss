@@ -3,10 +3,11 @@ $purple: #a320db;
 $steelblue: #1d72aa;
 
 
-.topnav .oapen-btn-toolkit {
+.topnav .oapen-btn-lifecycle {
     background-color: orange;
     border-color: transparent;
     color: white;
+    font-weight: bold;
 }
 
 
@@ -42,15 +43,14 @@ $steelblue: #1d72aa;
  		
  		h1 {
 	 		font-size: 3rem;
+ 			opacity: .75;
  		}		
  		h4 {
  			font-size: 1.6rem;
  			font-weight: 400;
- 			opacity: .75;
  		}	
  		
  		span { 
- 			opacity: .75;
  			font-weight: 400;
  		}
  	
@@ -59,7 +59,6 @@ $steelblue: #1d72aa;
 	 		margin-top: 10px;
 		 	img {
 		 		filter: invert(100%);
-		 		opacity: .8;
 		 		width: 25%;
 		 	}	
 	 	}	

@@ -1,6 +1,7 @@
 package com.trilobiet.oapen.oapentoolkit.rss;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface RssItem {
 	
@@ -10,5 +11,6 @@ public interface RssItem {
 	String getDescription();
 	String getContents();
 	String getLink();
+	List<String> getCategory();
 
 }

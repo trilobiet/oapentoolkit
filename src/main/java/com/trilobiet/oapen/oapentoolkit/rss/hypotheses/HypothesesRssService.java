@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.cache.annotation.Cacheable;
 
@@ -34,11 +37,22 @@ public class HypothesesRssService implements RssService {
 	@Override
 	public List<RssItem> getItems(int count) throws RssException {
 		
+		return getItems(count, Collections.emptyList());
+	}
+	
+	@Override
+	public List<RssItem> getItems(int count, List<String> categories) throws RssException {
+		
 		Optional<SyndFeed> feed = getFeed();
 		List<RssItem> items = new ArrayList<>();
-
+		
 		feed.ifPresent( f -> {
-			f.getEntries().stream().limit(count).forEach( e -> items.add( rssItem(e) ) );
+			f.getEntries().stream()
+			 .filter(e ->
+			 	// show all, or only from listed categories
+			  	categories.isEmpty() || e.getCategories().stream().anyMatch(c -> categories.contains(c.getName()))
+			 )
+			 .limit(count).forEach(e -> items.add(rssItem(e)));
 		});
 
 		return items;
@@ -66,7 +80,8 @@ public class HypothesesRssService implements RssService {
 			.setTitle( entry.getTitle())
 			.setDescription( entry.getDescription().getValue())
 			.setAuthor(entry.getAuthor())
-			.setDate(entry.getPublishedDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			.setDate(entry.getPublishedDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())
+			.setCategory(entry.getCategories().stream().map(e -> e.getName()).collect(Collectors.toList()));
 		
 		List<SyndContent> lst = entry.getContents();
 		lst.stream()

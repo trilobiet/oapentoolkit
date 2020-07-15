@@ -30,6 +30,8 @@
 					<p class="oapen-blogpost-description" th:utext="${@viewhelpers.abbreviate(blogPost.description,300)}">
 						Blogpost Description
 					</p>
+					
+					<p style="display:none">categories: <span th:utext="${blogPost.category}">categories</span></p>
 					 
 				</li>
 

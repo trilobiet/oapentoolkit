@@ -2,6 +2,7 @@ package com.trilobiet.oapen.oapentoolkit.rss.hypotheses;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import com.trilobiet.oapen.oapentoolkit.rss.RssItem;
 
@@ -11,6 +12,7 @@ public class RssItemImp implements RssItem, Serializable {
 
 	private String title, author, description, contents, link;
 	private LocalDate date;
+	List<String> category;
 	
 	@Override
 	public String getTitle() {
@@ -42,10 +44,16 @@ public class RssItemImp implements RssItem, Serializable {
 		return link;
 	}
 
+	@Override
+	public List<String> getCategory() {
+		return category;
+	}
+
 	public static class Builder {
 		
 		private String title, link, description, author, contents;
 		private LocalDate date;
+		List<String> category;
 		
 		public Builder(String link) {
 			this.link = link;
@@ -75,7 +83,12 @@ public class RssItemImp implements RssItem, Serializable {
 			this.date = date;
 			return this;
 		}
-		
+
+		public Builder setCategory(List<String> category) {
+			this.category = category;
+			return this;
+		}
+
 		public RssItem build() {
 			
 			RssItemImp item = new RssItemImp();
@@ -85,6 +98,7 @@ public class RssItemImp implements RssItem, Serializable {
 			item.description = this.description;
 			item.link = this.link;
 			item.title = this.title;
+			item.category = this.category;
 			
 			return item;
 		}
@@ -119,5 +133,5 @@ public class RssItemImp implements RssItem, Serializable {
 	public String toString() {
 		return "RssItemImp [title=" + title + ", link=" + link + ", date=" + date + "]";
 	}
-	
+
 }

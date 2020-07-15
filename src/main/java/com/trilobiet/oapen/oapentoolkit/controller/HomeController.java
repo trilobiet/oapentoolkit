@@ -1,5 +1,6 @@
 package com.trilobiet.oapen.oapentoolkit.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +45,7 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			Optional<SectionImp> toolkitSection = sectionService.getSectionBySlug("toolkit");
+			Optional<SectionImp> toolkitSection = sectionService.getSectionBySlug("lifecycle");
 			if( toolkitSection.isPresent() ) {
 				List<Topic> tktopics = toolkitSection.get().getTopics();
 				mv.addObject("toolkittopics",tktopics);
@@ -65,7 +66,9 @@ public class HomeController extends BaseController {
 		
 		try {
 			// Get latest blog post(s)
-			List<RssItem> rssItems = rssService.getItems(2);
+			List<String> categories = 
+					Arrays.asList(environment.getProperty("blog_categories").split("\\s*,\\s*"));
+			List<RssItem> rssItems = rssService.getItems(2,categories);
 			mv.addObject("rssItems",rssItems);
 		} catch (Exception e) {
 			log.error(e);
@@ -81,5 +84,16 @@ public class HomeController extends BaseController {
 		
 		return mv;
 	}
+	
+	
+	@RequestMapping("/sitemap") 
+	public ModelAndView showSitemap() throws Exception {
+		
+		ModelAndView mv = new ModelAndView("sitemap"); 
+		List<SectionImp> sections = sectionService.getSections();
+		mv.addObject("sections", sections);
+
+		return mv;
+	}	
 	
 }
