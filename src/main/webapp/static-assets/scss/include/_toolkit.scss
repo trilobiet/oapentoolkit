@@ -250,29 +250,33 @@ $steelblue: #1d72aa;
 	}		
 }	
 
-.content .oapen-faq-list {
-
-	list-style: none;
-	margin: 0;
-
-	.oapen-faq {
-		margin: 2rem 0;
-	}
+.oapen-section-expanded {
 	
-	.oapen-faq-question {
+	.oapen-toc-header {
+		font-size: 1rem;
+		padding-bottom: .5em;
+		border-bottom: solid 1px #aaa;
+		margin-bottom: 1.5rem;
+		opacity: .6;	
+	}	
+	
+	.oapen-topic-list {
+		
+		list-style: none;
+		margin-left: 0;
+		
+		ul {
+			list-style: disc;	
+		}	
+
+		&>li {
+			margin: 0 0 2rem 0;
+		}	
 	}
 
-	.oapen-faq-answer {
-		background: transparent;
-		//font-size: 90%;
-		padding: .5em 1.5em;
-		opacity: .7;
-	}		
-
-	.oapen-faq-readmore {
-		margin-top: 1em;
-	}		
-		
+	.oapen-topic-header {
+		font-weight: normal;
+	}	
 }
 
 .oapen-summaries {

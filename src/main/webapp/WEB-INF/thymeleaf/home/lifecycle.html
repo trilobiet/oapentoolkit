@@ -41,10 +41,10 @@
 				<ul class="oapen-toolkit-topiclist">
 					<li th:each="topic:${toolkittopics}">
 
-						<a th:href="@{'/toolkit/'+${topic.slug}}"
+						<a th:href="@{'/'+${toolkitsection.slug}+'/'+${topic.slug}}"
 						   th:text="${topic.name}">topic name</a>
 						   
-						<div class="clickloader is-hidden oapen-toolkit-dropdown" th:data-src="@{'/toolkit/listtopic/'+${topic.slug}} + '/?rows=4 #ArticleList'">
+						<div class="clickloader is-hidden oapen-toolkit-dropdown" th:data-src="@{'/'+${toolkitsection.slug}+'/listtopic/'+${topic.slug}}+'/?rows=4 #ArticleList'">
 						</div>
 						   
 					</li>

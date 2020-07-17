@@ -44,4 +44,21 @@ public class BaseController {
 	@Autowired
 	protected Environment environment;	
     
+	
+	/**
+	 * Construct a section placeholder for the breadcrumb path
+	 * 
+	 * @param name
+	 * @param slug
+	 * @return
+	 */
+	protected SectionImp getBreadcrumbSection(String name, String slug) {
+		
+		SectionImp section = new SectionImp(); 
+		section.setName(name);
+		section.setSlug(slug);
+		return section;
+		
+	}
+	
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+
+<head>
+	<title>Glossary</title>
+</head>
+
+<body>
+
+	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
+	<div layout:fragment="content" class="oapen-main oapen-keywords oapen-toolkit">
+	
+		<div class="section">
+
+			<div class="container">
+			
+				<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+
+				<div class="content oapen-primary">
+
+					<h1>Glossary</h1>
+					
+					<div th:utext="${article.content}">Article Content</div>
+					
+					<hr/>
+					
+					<a th:href="@{/glossary}"><i class="fas fa-caret-left"></i> Glossary</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
+

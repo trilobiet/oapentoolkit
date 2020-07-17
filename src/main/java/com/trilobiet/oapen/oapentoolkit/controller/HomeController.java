@@ -1,6 +1,7 @@
 package com.trilobiet.oapen.oapentoolkit.controller;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,12 +46,14 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			Optional<SectionImp> toolkitSection = sectionService.getSectionBySlug("lifecycle");
-			if( toolkitSection.isPresent() ) {
-				List<Topic> tktopics = toolkitSection.get().getTopics();
+			Optional<SectionImp> tkSection = sectionService.getSectionBySlug("lifecycle");
+			if( tkSection.isPresent() ) {
+				List<Topic> tktopics = tkSection.get().getTopics();
+				mv.addObject("toolkitsection",tkSection.get());
 				mv.addObject("toolkittopics",tktopics);
 			}
 			else {
+				mv.addObject("toolkitsection",null);
 				mv.addObject("toolkittopics",null);
 			}
 		} catch (Exception e) {
@@ -65,9 +68,10 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			// Get latest blog post(s)
-			List<String> categories = 
-					Arrays.asList(environment.getProperty("blog_categories").split("\\s*,\\s*"));
+			// Get latest blog post(s) of selected categories
+			String cats = environment.getProperty("blog_categories");
+			// NB: cats.split would produce a single empty list item on an empty string, hence the test!
+			List<String> categories = cats.equals("") ? Collections.emptyList() : Arrays.asList(cats.split(","));
 			List<RssItem> rssItems = rssService.getItems(2,categories);
 			mv.addObject("rssItems",rssItems);
 		} catch (Exception e) {

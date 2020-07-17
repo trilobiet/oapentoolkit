@@ -33,7 +33,7 @@ public class ArticleController extends BaseController {
 		TKArticle article = articleService.getArticleBySlug(slug)
 				.orElseThrow( () -> new ResourceNotFoundException() );
 		mv.addObject("article", article);
-		mv.addObject( "bodyClass", CmsUtils.getCssClass(article) );
+		mv.addObject("bodyClass", CmsUtils.getCssClass(article));
 		
 		Set<ArticleOutline> linked = articleService.getLinked(article);
 		mv.addObject("linked", linked);

@@ -1,6 +1,7 @@
 package com.trilobiet.oapen.oapentoolkit.controller;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,10 @@ public class BlogController extends BaseController {
 		) throws Exception {
 
 		ModelAndView mv = new ModelAndView("blog");
-		List<String> categories = 
-				Arrays.asList(environment.getProperty("blog_categories").split("\\s*,\\s*"));
+		
+		String cats = environment.getProperty("blog_categories");
+		// NB: cats.split would produce a single empty list item on an empty string, hence the test!
+		List<String> categories = cats.equals("") ? Collections.emptyList() : Arrays.asList(cats.split(","));
 		List<RssItem> blogPosts = rssService.getItems(10,categories);
 		
 		/* display post by link or first post */

@@ -39,12 +39,7 @@ public class TopicController extends BaseController {
 			
 			String redirectUrl = CmsUtils.getParamValue(topic, "redirect");
 			return new ModelAndView("redirect:"+redirectUrl);
-		
 		}	
-		else if (topic.getType().equals("faq")) {
-			
-			mv = new ModelAndView("topic_faq");
-		}
 		else {
 
 			mv = selectView(topic);

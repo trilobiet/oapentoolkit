@@ -38,6 +38,7 @@ public class GlobalExceptionHandler {
 	public String handleSomethingNotFound(HttpServletRequest req, HttpServletResponse res, Exception ex) {
 		
 		log.error("Not Found: " + req.getRequestURI().toString());
+		log.error( ex.getMessage() );
 		log.debug( ex );
 		return "error/notfound";
 	}

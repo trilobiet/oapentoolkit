@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trilobiet.graphqlweb.dao.DaoException;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.oapen.oapentoolkit.data.KeywordService;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
 
@@ -43,22 +42,6 @@ public class KeywordsController extends BaseController {
 		mv.addObject("section",getBreadcrumbSection("Keywords","keywords"));
 
 		return mv;
-	}
-	
-	/**
-	 * Construct a section placeholder for the breadcrumb path
-	 * 
-	 * @param name
-	 * @param slug
-	 * @return
-	 */
-	private SectionImp getBreadcrumbSection(String name, String slug) {
-		
-		SectionImp section = new SectionImp(); 
-		section.setName(name);
-		section.setSlug(slug);
-		return section;
-		
 	}
 	
 }

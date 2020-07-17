@@ -16,7 +16,15 @@ public class SectionController extends BaseController {
 			@PathVariable( "slug" ) String slug 
 		) throws Exception {
 
-		ModelAndView mv = new ModelAndView("section");
+		ModelAndView mv = new ModelAndView();
+
+		switch (slug) {
+			case "faqs":
+			case "lifecycle": 
+				mv.setViewName("section_expanded"); break;
+			default: 
+				mv.setViewName("section"); 
+		}
 		
 		Section section = sectionService.getSectionBySlug(slug)
 				.orElseThrow(ResourceNotFoundException::new);

@@ -21,16 +21,14 @@
 		<aop:advisor advice-ref="articleAdvice" 
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.ArticleService.*(..))" />
 
-		<!--
-		<aop:advisor advice-ref="toolkitarticleAdvice"
-			pointcut="execution(* com.trilobiet.oapen.oapentoolkit.data.TKHtmlToolkitArticleService.*(..) )" />
-		-->	
-
 		<aop:advisor advice-ref="fileAdvice"
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.FileService.*(..))" />
 
 		<aop:advisor advice-ref="keywordAdvice"
 			pointcut="execution(* com.trilobiet.oapen.oapentoolkit.data.KeywordService.*(..) )" />
+
+		<aop:advisor advice-ref="tocAdvice"
+			pointcut="execution(* com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator.*(..) )" />
 
 	</aop:config>
 
@@ -69,6 +67,12 @@
 	<cache:advice id="keywordAdvice">
 		<cache:caching>
 			<cache:cacheable method="getKeywords" cache="tkKeywordsCache" key="#root.methodName" />
+		</cache:caching>
+	</cache:advice>
+
+	<cache:advice id="tocAdvice">
+		<cache:caching>
+			<cache:cacheable method="alphabetizedToc" cache="tkKeywordsCache" key="#root.methodName" />
 		</cache:caching>
 	</cache:advice>
 
