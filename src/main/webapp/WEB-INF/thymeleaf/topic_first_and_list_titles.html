@@ -31,6 +31,13 @@
 							<div class="columns">
 							
 								<div class="column">
+								
+									<div class="oapen-article-pubdate">
+										Published  
+										<span th:text="${#temporals.format(article.updatedAt,'d MMMM yyyy')}">
+											16 July 2020
+										</span>
+									</div>
 		
 									<div th:utext="${firstarticle.content}" class="content">
 										Article content
@@ -57,6 +64,14 @@
 						</article>
 						
 						<th:block th:insert="include/attachments :: attachments" th:with="article=${firstarticle}" />
+						
+						<div class="oapen-article-update">
+							Last edited on 
+							<span th:text="${#temporals.format(article.updatedAt,'d MMMM yyyy, ''at'' HH:mm (Z)')}">
+								17 July 2020, at 11:21 (+0100).
+							</span>
+						</div>
+						
 						
 					</th:block>	
 					

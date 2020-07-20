@@ -24,12 +24,6 @@
 		<aop:advisor advice-ref="fileAdvice"
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.FileService.*(..))" />
 
-		<aop:advisor advice-ref="keywordAdvice"
-			pointcut="execution(* com.trilobiet.oapen.oapentoolkit.data.KeywordService.*(..) )" />
-
-		<aop:advisor advice-ref="tocAdvice"
-			pointcut="execution(* com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator.*(..) )" />
-
 	</aop:config>
 
 	<cache:advice id="sectionAdvice">
@@ -61,18 +55,6 @@
 			<cache:cacheable method="getByName" cache="tkFilesCache" key="#name" />
 			<cache:cacheable method="getFirstWithName" cache="tkFilesCache" key="#name" />
 			<cache:cacheable method="getByFieldValue" cache="tkFilesCache" key="#field+'-'+#value" />
-		</cache:caching>
-	</cache:advice>
-
-	<cache:advice id="keywordAdvice">
-		<cache:caching>
-			<cache:cacheable method="getKeywords" cache="tkKeywordsCache" key="#root.methodName" />
-		</cache:caching>
-	</cache:advice>
-
-	<cache:advice id="tocAdvice">
-		<cache:caching>
-			<cache:cacheable method="alphabetizedToc" cache="tkKeywordsCache" key="#root.methodName" />
 		</cache:caching>
 	</cache:advice>
 

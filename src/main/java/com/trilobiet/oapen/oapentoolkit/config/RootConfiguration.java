@@ -44,8 +44,6 @@ import com.trilobiet.oapen.oapentoolkit.rss.hypotheses.HypothesesRssService;
 )
 public class RootConfiguration {
 	
-	// TODO: ehcache re-connect to services
-	
 	@Autowired
 	public Environment env;	
 	

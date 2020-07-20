@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -49,7 +48,7 @@ public class HypothesesRssService implements RssService {
 		feed.ifPresent( f -> {
 			f.getEntries().stream()
 			 .filter(e ->
-			 	// show all, or only from listed categories
+			 	// show all, or only from listed categories (case sensitive!)
 			  	categories.isEmpty() || e.getCategories().stream().anyMatch(c -> categories.contains(c.getName()))
 			 )
 			 .limit(count).forEach(e -> items.add(rssItem(e)));
@@ -98,7 +97,7 @@ public class HypothesesRssService implements RssService {
 	 * @return
 	 * @throws RssException
 	 */
-	@Cacheable(value="rssCache", key="#root.target.feedUrl")
+	@Cacheable(value="tkRssCache", key="#root.target.feedUrl")
 	private Optional<SyndFeed> getFeed() throws RssException {
 		
 		SyndFeed feed = null;

@@ -9,14 +9,13 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
 import com.trilobiet.graphqlweb.dao.SectionDao;
 import com.trilobiet.graphqlweb.datamodel.Topic;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArticleDao;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.GenericSectionDao;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
-import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionList;
 
 public class KeywordService {
 
@@ -28,24 +27,11 @@ public class KeywordService {
 		this.sectiondao = sectiondao;
 		this.tkarticledao = articledao;
 	}
-
 	
-	public static void main(String[] args) throws DaoException {
-		
-		String host = "https://oapen-cms.trilobiet.eu/graphql";
-		
-		GenericSectionDao<SectionImp> sDao = new GenericSectionDao<>(host, SectionImp.class, SectionList.class);
-		GenericArticleDao<TKArticle> aDao = new GenericArticleDao<>(host, TKArticle.class, TKArticleList.class);
-		
-		KeywordService ks = new KeywordService(sDao, aDao);
-		
-		Map<Character, Set<String>> keywords = ks.getKeywords();
-		System.out.println("Keywords: " + keywords);
-		
-	}
-	
-	// TODO: caching
+	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
 	public Map<Character, Set<String>> getKeywords() throws DaoException {
+		
+		System.out.println("kw");
 		
 		// Optional<SectionImp> section = sectiondao.getBySlug("toolkit");
 		Map<Character, Set<String>> keywords = new TreeMap<>();
@@ -70,8 +56,6 @@ public class KeywordService {
 			TreeMap::new, 
 			Collectors.toCollection(() -> new TreeSet<String>(String.CASE_INSENSITIVE_ORDER))
 		));
-		
-		// System.out.println(keywords);
 		
 		return keywords;
 	}

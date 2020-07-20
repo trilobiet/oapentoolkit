@@ -18,7 +18,7 @@ public class TKArticle extends ArticleImp {
 	private static final long serialVersionUID = 1L;
 
 	private String references, sources, resources, keywords;
-
+	
 	public String getReferences() {
 		return references;
 	}

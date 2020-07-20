@@ -7,6 +7,8 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 import com.trilobiet.graphqlweb.datamodel.comparator.ArticleTitleComparator;
@@ -14,7 +16,10 @@ import com.trilobiet.graphqlweb.datamodel.comparator.ArticleTitleComparator;
 public class TopicTocGenerator {
 	
 	// not static, so we can cache
+	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
 	public Map<Character, Collection<ArticleOutline>> alphabetizedToc(Topic topic) {
+		
+		System.out.println("toc");
 		
 		Stream<ArticleOutline> v2 = topic.getArticles().stream();
 		
@@ -23,8 +28,6 @@ public class TopicTocGenerator {
 			TreeMap::new, 
 			Collectors.toCollection(() -> new TreeSet<ArticleOutline>(new ArticleTitleComparator()))
 		));
-		
-		// System.out.println(glossary);
 		
 		return glossary;
 	}

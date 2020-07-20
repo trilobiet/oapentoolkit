@@ -33,7 +33,7 @@
 					<ul class="oapen-keyword-results">
 						<li th:each="article: ${tkarticles}">
 							<h4>
-								<a th:href="@{'/toolkit/article/'+${article.slug}}" 
+								<a th:href="@{'/lifecycle/article/'+${article.slug}}" 
 									th:text="${article.title}">article title</a>
 							</h4>
 							<th:block th:utext="${@viewhelpers.abbreviate(article.summary, 300)}">excerpt</th:block>
