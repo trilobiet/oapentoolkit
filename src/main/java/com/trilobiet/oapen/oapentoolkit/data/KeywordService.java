@@ -31,8 +31,6 @@ public class KeywordService {
 	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
 	public Map<Character, Set<String>> getKeywords() throws DaoException {
 		
-		System.out.println("kw");
-		
 		// Optional<SectionImp> section = sectiondao.getBySlug("toolkit");
 		Map<Character, Set<String>> keywords = new TreeMap<>();
 		

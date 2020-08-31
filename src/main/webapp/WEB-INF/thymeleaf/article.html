@@ -63,6 +63,8 @@
 					
 					<th:block th:insert="include/attachments :: attachments"/>
 					
+					<th:block th:insert="include/prevnext :: prevnext"/>
+
 					<div class="oapen-article-update">
 						Last edited on 
 						<span th:text="${#temporals.format(article.updatedAt,'d MMMM yyyy, ''at'' HH:mm (Z)')}">
@@ -76,6 +78,7 @@
 				<div class="column">
 				
 					<th:block th:insert="include/currentsection :: topics"/>
+					<!--/* Hide if only one topic: th:if="${#lists.size(section.topics)>1}" */-->
 					
 					<th:block th:insert="include/relatedarticles :: linked"/>
 

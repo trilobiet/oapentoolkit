@@ -5,13 +5,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
 import com.trilobiet.graphqlweb.datamodel.Topic;
-import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
 import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
 
 @Controller
@@ -20,7 +18,7 @@ public class GlossaryController extends BaseController {
 	@Autowired
 	protected TopicTocGenerator tocGenerator;	
 
-	@RequestMapping("/glossary")
+	@RequestMapping({"/glossary","/glossary/{topicslug}"}) // no sub pages for glossary (topic redirect to section)
 	public ModelAndView showGlossary() throws Exception {
 
 		ModelAndView mv = new ModelAndView("glossary/list");
@@ -35,22 +33,5 @@ public class GlossaryController extends BaseController {
 	
 		return mv;
 	}
-	
 
-	@RequestMapping("/glossary/{slug}")
-	public ModelAndView showGlossaryTerm(
-			@PathVariable( "slug" ) String slug
-		) throws Exception {
-
-		ModelAndView mv = new ModelAndView("glossary/term");
-		
-		TKArticle article = articleService.getArticleBySlug(slug)
-			.orElseThrow(() -> new ResourceNotFoundException("Article not found"));
-		
-		mv.addObject("article", article );
-		mv.addObject("section",getBreadcrumbSection("Glossary","glossary"));
-	
-		return mv;
-	}
-	
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
+import com.trilobiet.graphqlweb.datamodel.Section;
+import com.trilobiet.graphqlweb.datamodel.Topic;
 import com.trilobiet.graphqlweb.helpers.CmsUtils;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
@@ -48,7 +50,26 @@ public class ArticleController extends BaseController {
 			mv.addObject("section",osection.orElse(new SectionImp()));
 		}
 		
+		mv.addObject("sectiontopicprefix", sectionTopicPrefix( sectionslug, topicslug ));
+		
 		return mv;
 	}
+	
+	
+	private String sectionTopicPrefix(String sectionslug, String topicslug) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if (sectionslug != null) {
+			sb.append("/").append(sectionslug);
+			if (topicslug != null) sb.append("/").append(topicslug);
+		}
+		else {
+			if (topicslug != null) sb.append("/topic").append(topicslug);
+		}
+		
+		return sb.append("/article/").toString();
+	}
+	
 	
 }

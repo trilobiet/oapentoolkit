@@ -32,7 +32,7 @@
 							<h4 th:text="${entry.key}">A</h4>
 							<ul>
 								<li th:each="articleOutline: ${entry.value}">
-									<a th:href="@{'/glossary/'+${articleOutline.slug}}" th:utext="${articleOutline.title}">glossary term</a>
+									<a th:href="@{'/glossary/article/'+${articleOutline.slug}}" th:utext="${articleOutline.title}">glossary term</a>
 								</li>	
 							</ul>
 						</li>

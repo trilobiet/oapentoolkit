@@ -2,6 +2,11 @@
 $purple: #a320db;
 $steelblue: #1d72aa;
 
+.oapen-toc { 
+	a:visited {
+		color: #57B;
+	}	
+}	
 
 .topnav .oapen-btn-lifecycle {
     background-color: orange;
@@ -18,11 +23,10 @@ $steelblue: #1d72aa;
  	margin-top: 1.5rem;
  	margin-bottom: 1.5rem;
  	
- 	background: #ffa500cc;
+ 	// background: #ffa500cc;
+ 	background: orange;
  	
  	.column {
- 		
- 		background: orange;
  		
 	 	&:first-child {
 	 		text-align: right;
@@ -160,6 +164,26 @@ $steelblue: #1d72aa;
 
 
 }
+
+.oapen-prevnext {
+	
+	display: flex; 
+	justify-content: space-between; 
+	margin: 1rem 0;
+
+	.oapen-prevarticle {
+		margin-right: auto;
+		@include fa-before('\f104', $valign:baseline);
+	}
+	.oapen-nextarticle {
+		margin-left: auto;
+		@include fa-after('\f105', $valign:baseline);
+	}
+	
+}
+
+
+
 
 .oapen-keywords {
 

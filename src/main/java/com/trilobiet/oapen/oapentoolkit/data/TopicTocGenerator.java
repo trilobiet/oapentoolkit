@@ -19,8 +19,6 @@ public class TopicTocGenerator {
 	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
 	public Map<Character, Collection<ArticleOutline>> alphabetizedToc(Topic topic) {
 		
-		System.out.println("toc");
-		
 		Stream<ArticleOutline> v2 = topic.getArticles().stream();
 		
 		Map<Character, Collection<ArticleOutline>> glossary = v2.collect(Collectors.groupingBy(
