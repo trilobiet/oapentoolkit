@@ -1,7 +1,4 @@
 
-$purple: #a320db;
-$steelblue: #1d72aa;
-
 .oapen-toc { 
 	a:visited {
 		color: #57B;
@@ -30,13 +27,21 @@ $steelblue: #1d72aa;
  		
 	 	&:first-child {
 	 		text-align: right;
-	 		padding: 3.5rem 5% 3.5rem 1rem; 
+	 		padding: 2.5rem 5% 1.5rem 1rem; 
+	 		
+			@media screen and (max-width: 768px) {
+ 				padding: 1rem 5% 0 1rem;
+ 			}		 		
 	 	}	
 
 	 	&:last-child {
 	 		padding-top: 3.5rem;	
 	 		padding-bottom: 3.5rem;
 	 		padding-right: 2rem;
+
+			@media screen and (max-width: 768px) {
+ 				padding: 1rem 5% 2.5rem 1rem;
+ 			}		 		
 	 	}	
  	}	
  
@@ -53,25 +58,27 @@ $steelblue: #1d72aa;
  			font-size: 1.6rem;
  			font-weight: 400;
  		}	
- 		
- 		span { 
- 			font-weight: 400;
- 		}
  	
  		.oapen-toolbox-icon {
+ 			
 	 		display: block;
 	 		margin-top: 10px;
+		 	
 		 	img {
 		 		filter: invert(100%);
-		 		width: 25%;
+		 		width: 20%;
+		 		
+		 		@media screen and (max-width: 768px) {
+		 			width: 15%;
+		 		}	
 		 	}	
 	 	}	
- 	
  	}	
  
  	.oapen-browseby {
+ 		display: none;
  		margin: 0 1rem .5rem 0;
- 		color: black;	
+ 		color: #4a4a4a;	
  	}	
  
  	.oapen-toolkit-buttons {
@@ -114,75 +121,90 @@ $steelblue: #1d72aa;
 		color: $steelblue;
 	}		
 
-	.oapen-toolkit-tree ul.oapen-toolkit-topiclist {
+	.oapen-toolkit-tree {
 		
-		list-style: none;
-		padding: 0;
+		padding-top: 1.5rem;
 		
-		&>li {
-			//padding-left: 1.3em;
-			
-			&>a {
-				color: $steelblue;
-				font-family: "Roboto Slab";
-			}	
+		h1, h2, h3 {
+			color: orange;
+			font-size: $h1size;
 		}	
 		
-		&>li:before {
-			content: "\f0da";
-			font-family: $FontAwesome;
-			font-weight: 900;
-			display: inline-block;
-			margin-left: -1em; /* same as padding-left set on li */
-			width: .7em; /* same as padding-left set on li */
-		}		
-	
-		&>li.is-foldout:before {
-			content: '\f0d7';
-		}	
-	
-		.oapen-toolkit-dropdown {
-			
-			background: #f3f3f3;
-			padding: .5em .2em;
-			margin: 1em 0 1em -1.1em;
-			
-			ul {
-				list-style: disc;
-				font-size: 90%	
-			}	
+		ul.oapen-toolkit-topiclist {
 		
-			a {
-				color: black;	
-				&:hover {
+			list-style: none;
+			padding: 0;
+			
+			&>li {
+				//padding-left: 1.3em;
+				
+				&>a {
 					color: $steelblue;
+					font-family: "Roboto Slab";
 				}	
-				cursor: pointer;
 			}	
+			
+			&>li:before {
+				content: "\f0da";
+				font-family: $FontAwesome;
+				font-weight: 900;
+				display: inline-block;
+				margin-left: -1em; /* same as padding-left set on li */
+				width: .7em; /* same as padding-left set on li */
+			}		
+		
+			&>li.is-foldout:before {
+				content: '\f0d7';
+			}	
+		
+			.oapen-toolkit-dropdown {
+				
+				background: #f3f3f3;
+				padding: .5em .2em;
+				margin: 1em 0 1em -1.1em;
+				
+				ul {
+					list-style: disc;
+					font-size: 90%	
+				}	
+			
+				a {
+					color: black;	
+					&:hover {
+						color: $steelblue;
+					}	
+					cursor: pointer;
+				}	
+			}
+	
 		}
 	}	
 
-
-}
-
-.oapen-prevnext {
-	
-	display: flex; 
-	justify-content: space-between; 
-	margin: 1rem 0;
-
-	.oapen-prevarticle {
-		margin-right: auto;
-		@include fa-before('\f104', $valign:baseline);
-	}
-	.oapen-nextarticle {
-		margin-left: auto;
-		@include fa-after('\f105', $valign:baseline);
-	}
-	
 }
 
 
+.oapen-toolkit-infobox {
+	
+	padding: 2rem;
+	background: #677;
+	
+	.content {
+		color: white;
+	}	
+
+	h1,h2,h3,h4,h5,h6 {
+		color: wheat;
+	}	
+
+	p {
+		font-size: 90%;
+	}	
+
+	a {
+		color: lightblue;
+		font-weight: bold;
+	}	
+}	
 
 
 .oapen-keywords {
@@ -207,6 +229,11 @@ $steelblue: #1d72aa;
 		}	
 	}
 
+	.oapen-keyword-heading {
+		font-size: $h3size;
+		font-family: Roboto Slab;
+	}	
+
 	.oapen-keyword-results {
 		list-style: none;
 		margin: 0;
@@ -219,7 +246,12 @@ $steelblue: #1d72aa;
 		h4 {
 			margin-bottom: 0.2em;	
 		}		
-	}	
+	}
+
+	.oapen-keyword-resultheading {
+		font-size: $h3size;
+		font-family: Roboto;
+	}		
 	
 }	
 
@@ -233,6 +265,9 @@ $steelblue: #1d72aa;
 
 .oapen-primary {
 	border-top: solid 8px orange;	
+	@media screen and (max-width: 1024px) {
+		& > h1, & > h2 { margin-top: 1rem; }
+	}	
 }
 
 
@@ -257,6 +292,13 @@ $steelblue: #1d72aa;
 	h1,h2,h3,h4,h5,h6 {
 		color: orange;	
 	}	 
+
+	.oapen-metadataheading {
+		font-size: $h3size;
+		color: orange;
+		font-family: Roboto Slab;
+	}	
+
 	a {
 		color: wheat;	
 	}	 
@@ -269,12 +311,16 @@ $steelblue: #1d72aa;
 	margin-bottom: .5rem;
 	padding-bottom: .5rem;
 	border-bottom: solid 1px #ccc;
+	
+	@media screen and (max-width: 1023px) {
+		margin-top: 1.5em;
+	}	
 }	
 
 .oapen-article-update {
 	font-size: .75rem;
 	border-top: solid 1px #ddd;
-	margin-top: .5rem;
+	margin: .5rem 0 2rem 0;
 	padding-top: .5rem;
 	opacity: .75;
 }	
@@ -316,6 +362,7 @@ $steelblue: #1d72aa;
 
 	.oapen-topic-header {
 		font-weight: normal;
+		font-size: $h3size;
 	}	
 }
 
@@ -326,3 +373,37 @@ $steelblue: #1d72aa;
 	}
 }	
 
+.oapen-table-wrapper {
+	
+	margin: 1em 0 2em 0;
+	
+	/* Do NOT remove media query: this doesn't work
+	for flex layouts, so can only be used on the small mobile layout
+	(usually the only place where it is needed too).*/  
+	@media screen and (max-width: 768px) { 
+	
+		overflow-x: auto;
+		
+		table td {
+			min-width: 15em;
+		}
+	}		
+}	
+
+.oapen-table-swipe {
+
+	display: none;
+	font-size: 85%;
+	background: #f4f4f4;
+	white-space: nowrap;
+	@include fa-before('\f177', 1em, .15em, bottom) {};
+	@include fa-after('\f178', 1em, .15em, bottom) {};
+
+	@media screen and (max-width: 768px) {
+		display: block;
+		text-align: center;
+	}		
+}
+
+
+	

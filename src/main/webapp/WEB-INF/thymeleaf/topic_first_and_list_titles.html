@@ -43,8 +43,6 @@
 										Article content
 									</div>
 									
-									<th:block th:insert="include/toolkitfields :: toolkitmetadata" th:with="article=${firstarticle}"/>
-									
 								</div>
 			
 								<div class="column is-one-quarter" th:if="${not #lists.isEmpty(firstarticle.media)}">
@@ -63,7 +61,11 @@
 		
 						</article>
 						
+						<th:block th:insert="include/toolkitfields :: toolkitmetadata" th:with="article=${firstarticle}"/>
+						
 						<th:block th:insert="include/attachments :: attachments" th:with="article=${firstarticle}" />
+						
+						<th:block th:insert="include/prevnext :: prevnext"/>
 						
 						<div class="oapen-article-update">
 							Last edited on 
@@ -72,14 +74,15 @@
 							</span>
 						</div>
 						
-						
 					</th:block>	
 					
 					<aside th:if="${#lists.size(articles) gt 1}">
 			
 						<div class="container content oapen-toc">
 			
-							<h3 class="oapen-toc-header">Contents for this topic</h3>
+							<div class="oapen-toc-header">Contents for this topic</div>
+							
+							<hr class="is-hidden"/>
 			
 							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
 								<li th:each="article, iStat : ${articles}" th:if="${iStat.index gt 0}">
@@ -88,7 +91,7 @@
 									</a>
 								</li>
 							</ul>
-			
+							
 						</div>
 			
 					</aside>
@@ -102,7 +105,7 @@
 
 					<th:block th:insert="include/relatedarticles :: linked"/>
 
-					<th:block th:insert="include/relatedarticles :: related"/>
+					<th:block th:insert="include/keywords :: keywords"/>
 				
 				</div>
 			

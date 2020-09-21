@@ -32,8 +32,14 @@ public class HomeController extends BaseController {
 		// Catch all errors here: home page must always be rendered, erroneous sections can be empty
 		
 		try {
+			Optional<SnippetImp> heroText = snippetService.getSnippet("home-hero-text");
+			if (heroText.isPresent() ) mv.addObject("heroText",heroText.get().getCode());
 			Optional<SnippetImp> introText = snippetService.getSnippet("home-intro");
-			if (introText.isPresent() ) mv.addObject("home_intro",introText.get().getCode());
+			if (introText.isPresent() ) mv.addObject("introText",introText.get().getCode());
+			Optional<SnippetImp> lifecycleCaption = snippetService.getSnippet("home-lifecycle-caption");
+			if (lifecycleCaption.isPresent() ) mv.addObject("lifecycleCaption",lifecycleCaption.get().getCode());
+			// Optional<SnippetImp> toolkitInfoBox = snippetService.getSnippet("home-toolkit-infobox");
+			// if (lifecycleCaption.isPresent() ) mv.addObject("toolkitInfoBox",toolkitInfoBox.get().getCode());
 		} catch (Exception e) {
 			log.error(e);
 		}

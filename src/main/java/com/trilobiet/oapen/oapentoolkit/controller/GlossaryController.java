@@ -30,6 +30,8 @@ public class GlossaryController extends BaseController {
 		
 		mv.addObject("glossary", glossary );
 		mv.addObject("section",getBreadcrumbSection("Glossary","glossary"));
+		
+		mv.addObject("glossaryIntro",topic.getDescription());
 	
 		return mv;
 	}

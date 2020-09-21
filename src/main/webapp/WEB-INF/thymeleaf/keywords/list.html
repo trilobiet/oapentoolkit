@@ -24,15 +24,15 @@
 
 					<h1>Keywords</h1>
 					
-					<p>
+					<div th:utext="${section.description}">
 						Search OA Toolkit content through keywords.
-					</p>
+					</div>
 					
 					<hr/>
 					
 					<ul class="oapen-keywords-list">
 						<li th:each="letter: ${keywords}" class="oapen-keyword-letter">
-							<h4 th:text="${letter.key}">A</h4>
+							<div class="oapen-keyword-heading" th:text="${letter.key}">A</div>
 							<ul>
 								<li th:each="keyword: ${letter.value}">
 									<a th:href="@{'/keywords?keyword='+${@viewhelpers.urlEncode(keyword)}}" th:text="${keyword}">keyword</a>

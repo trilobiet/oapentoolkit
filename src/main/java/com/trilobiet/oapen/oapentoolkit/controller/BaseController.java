@@ -58,7 +58,23 @@ public class BaseController {
 		section.setName(name);
 		section.setSlug(slug);
 		return section;
-		
 	}
 	
+	/**
+	 * Use to prepend section to prevnext links
+	 * 
+	 * @param sectionslug
+	 * @return
+	 */
+	protected String sectionPrefix(String sectionslug) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if (sectionslug != null) {
+			sb.append("/").append(sectionslug);
+		}
+		
+		return sb.append("/article/").toString();
+	}
+
 }

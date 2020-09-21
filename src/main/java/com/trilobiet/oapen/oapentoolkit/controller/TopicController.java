@@ -55,6 +55,7 @@ public class TopicController extends BaseController {
 				Set<ArticleOutline> linked = articleService.getLinked(articles.get(0));
 				mv.addObject("linked", linked);
 				mv.addObject("firstarticle",articles.get(0));
+				mv.addObject("article",articles.get(0));
 			}			
 		}
 		
@@ -67,6 +68,9 @@ public class TopicController extends BaseController {
 		// articles may be an empty collection if we only need summaries (which are in the topic tree)
 		mv.addObject("articles", articles);
 		mv.addObject("bodyClass", CmsUtils.getCssClass(topic) );
+		
+		// for prevnext links
+		mv.addObject("sectionprefix", sectionPrefix( sectionslug ));
 		
 		return mv;
 	}
@@ -81,7 +85,7 @@ public class TopicController extends BaseController {
 				case "Show_lead_article_and_list_titles":
 					return new ModelAndView("topic_first_and_list_titles");
 				case "Show_first_article":
-					return new ModelAndView("topic_first_article");
+					return new ModelAndView("article");
 				case "Show_list_of_articles":
 					return new ModelAndView("topic_list_articles");
 				case "Show_list_of_titles":
@@ -92,7 +96,7 @@ public class TopicController extends BaseController {
 		}
 		
 		// None set, choose default 
-		return new ModelAndView("topic_list_articles");
+		return new ModelAndView("topic_list_titles");
 	}
 	
 	

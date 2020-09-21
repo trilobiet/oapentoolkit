@@ -16,23 +16,26 @@
 			th:if="${article.sources!=null || article.references!=null || article.resources!=null}">
 			
 			<div class="oapen-article oapen-toolkit-metadata">
-		
+			
 				<div th:if="${article.sources}" class="content">
-					<h4>Source acknowledgements:</h4>
+					<div class="oapen-metadataheading">Source acknowledgements:</div>
+					<hr class="is-hidden"/>
 					<div th:utext="${article.sources}">
 						Sources
 					</div>
 				</div>
 	
 				<div th:if="${article.references}" class="content">
-					<h4>References:</h4>
+					<div class="oapen-metadataheading">References:</div>
+					<hr class="is-hidden"/>
 					<div th:utext="${article.references}">
 						References
 					</div>
 				</div>
 	
 				<div th:if="${article.resources}" class="content">
-					<h4>Further reading:</h4>
+					<div class="oapen-metadataheading">Further reading:</div>
+					<hr class="is-hidden"/>
 					<div th:utext="${article.resources}">
 						Resources
 					</div>

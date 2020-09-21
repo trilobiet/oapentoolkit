@@ -14,26 +14,13 @@
 
 		<aside class="oapen-related-articles" th:fragment="linked" th:if="${not #lists.isEmpty(linked)}">
 
-			<h5 class="is-title is-5 oapen-section-caption">Related Articles</h5>
+			<div class="is-title is-5 oapen-section-caption">Related Articles</div>
+			
+			<hr class="is-hidden"/>
 
 			<ul>
 
 				<li th:each="article:${linked}">
-					<a th:href="@{'/article/'+${article.slug}}"
-					   th:text="${article.title}">article title</a>
-				</li>
-
-			</ul>
-
-		</aside>
-
-		<aside class="oapen-linked-articles" th:fragment="related" th:if="${not #lists.isEmpty(related)}">
-
-			<h5 class="is-title is-5 oapen-section-caption">Related</h5>
-
-			<ul>
-
-				<li th:each="article:${related}">
 					<a th:href="@{'/article/'+${article.slug}}"
 					   th:text="${article.title}">article title</a>
 				</li>

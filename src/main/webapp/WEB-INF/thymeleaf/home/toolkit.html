@@ -18,13 +18,13 @@
 
 	<div class="container">
 
-		<div class="columns">
+		<div class="columns is-vcentered">
 
 			<div class="column is-two-fifths oapen-toolkit-title">
 			
 				<h4>OAPEN</h4> 
 
-				<h1>OA books Toolkit</h1>
+				<h1>OA Books Toolkit</h1>
 
 				<div class="oapen-toolbox-icon">
 					<img th:src="@{/static-assets/images/layout/toolkit.svg}" width="100" />
@@ -34,44 +34,39 @@
 
 			<div class="column">
 
-				<h4 class="title is-5">
-					Donec leo arcu
-				</h4>
-				<p>
-					Rhoncus sed lacus et, ultrices mattis turpis. Fusce dictum rhoncus dolor, et convallis dui dignissim quis.
-					In nec lectus sollicitudin, tempus arcu ut, pulvinar tortor. Nullam turpis mauris, molestie vitae nisl eu, volutpat ultricies risus.
-					In hac habitasse platea dictumst. Nunc commodo mauris sed bibendum dignissim. Quisque non neque sit amet tellus cursus molestie.
-				</p>
+				<div class="content" th:utext="${heroText}">
+					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
+					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
+				</div>
 
-
-				<p class="buttons oapen-toolkit-buttons">
+				<div class="buttons oapen-toolkit-buttons">
 				
 					<span class="oapen-browseby">
 						Browse by:
 					</span>
 
-					<a th:href="@{'/lifecycle'}" class="button is-rounded">
-						<span>Life&nbsp;cycle</span>
-						<span class="icon is-small">
-							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-						</span>
-					</a>
+					<div>
+						<a th:href="@{'/lifecycle'}" class="button is-rounded">
+							<span>Life&nbsp;cycle</span>
+							<span class="icon is-small">
+								<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+							</span>
+						</a>
+						<a th:href="@{'/faqs'}" class="button is-rounded">
+							<span>FAQ</span>
+							<span class="icon is-small">
+								<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+							</span>
+						</a>
+						<a th:href="@{'/keywords'}" class="button is-rounded">
+							<span>Keywords</span>
+							<span class="icon is-small">
+								<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+							</span>
+						</a>
+					</div>
 
-					<a th:href="@{'/faqs'}" class="button is-rounded">
-						<span>FAQ</span>
-						<span class="icon is-small">
-							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-						</span>
-					</a>
-
-					<a th:href="@{'/keywords'}" class="button is-rounded">
-						<span>Keywords</span>
-						<span class="icon is-small">
-							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-						</span>
-					</a>
-
-				</p>
+				</div>
 
 			</div>
 

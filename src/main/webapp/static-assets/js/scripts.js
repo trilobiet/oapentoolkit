@@ -43,6 +43,21 @@ jQuery(document).ready( function() {
 		});
 	});
 	
+	// wrap content tables in a horizontal scrolling div
+	$(".content table").wrap("<div class='oapen-table-wrapper'></div>");
+	$("<div class='oapen-table-swipe'>swipe to view table</div>").insertBefore($(".oapen-table-wrapper"));
+	
+	
+	/* Shrink font size for extremely long titles */
+	$('.content h1').each(function() {
+		var el= $(this);
+		var textLength = el.html().length;
+		if (textLength > 50) {
+			el.css('font-size', '2.1rem');
+		}
+	});
+	
+	
 });
 
 /*

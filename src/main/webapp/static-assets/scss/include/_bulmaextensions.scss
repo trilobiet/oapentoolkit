@@ -3,3 +3,13 @@
 // Modifications of or extensions to Bulma css
 //
 
+.breadcrumb li {
+	
+	overflow: hidden;
+	
+	a {
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}		
+}	

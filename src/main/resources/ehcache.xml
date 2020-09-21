@@ -31,7 +31,7 @@
 
 	<cache name="tkKeywordsCache"
 		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="36000"
+		timeToLiveSeconds="43200"
 		overflowToDisk="true"/>
 		
 	<cache name="tkRssCache"

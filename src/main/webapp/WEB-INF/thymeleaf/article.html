@@ -81,21 +81,8 @@
 					<!--/* Hide if only one topic: th:if="${#lists.size(section.topics)>1}" */-->
 					
 					<th:block th:insert="include/relatedarticles :: linked"/>
-
-					<aside th:if="${article.keywords!=''}" class="oapen-section-topics oapen-article-keywords">
 					
-						<h5 class="is-title is-5 oapen-section-caption">Keywords</h5>
-						
-						<ul>
-							<li th:each="keyword, iterStat: ${@viewhelpers.string2list(article.keywords)}">
-								<a th:href="@{'/keywords?keyword='+${@viewhelpers.urlEncode(keyword)}}" 
-							       th:text="${keyword}">
-								keyword
-								</a><span th:if="!${iterStat.last}" th:text="', '"></span>
-							</li>
-						</ul>
-						
-					</aside>
+					<th:block th:insert="include/keywords :: keywords"/>
 
 				</div>
 			
