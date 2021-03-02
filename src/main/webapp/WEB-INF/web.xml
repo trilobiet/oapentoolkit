@@ -19,6 +19,10 @@
     	<extension>.manifest</extension>
     	<mime-type>text/cache-manifest</mime-type>
 	</mime-mapping>    
-
+	
+	<session-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+         
 </web-app>
          
