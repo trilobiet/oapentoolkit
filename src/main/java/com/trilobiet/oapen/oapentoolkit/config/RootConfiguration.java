@@ -27,13 +27,15 @@ import com.trilobiet.graphqlweb.markdown2html.Md2HtmlSectionConverter;
 import com.trilobiet.graphqlweb.markdown2html.Md2HtmlSnippetConverter;
 import com.trilobiet.graphqlweb.markdown2html.Md2HtmlTopicConverter;
 import com.trilobiet.graphqlweb.markdown2html.StringFunction;
-import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
 import com.trilobiet.oapen.oapentoolkit.data.KeywordService;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticleConverter;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticleList;
+import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
 import com.trilobiet.oapen.oapentoolkit.rss.RssService;
 import com.trilobiet.oapen.oapentoolkit.rss.hypotheses.HypothesesRssService;
+import com.trilobiet.oapen.sitesearch.OapenSiteSearchService;
+import com.trilobiet.oapen.sitesearch.SiteSearchService;
 
 @Configuration
 @ComponentScan (
@@ -121,6 +123,11 @@ public class RootConfiguration {
 	@Bean 
 	public TopicTocGenerator topicTocGenerator() {
 		return new TopicTocGenerator();
+	}
+	
+	@Bean 
+	public SiteSearchService siteSearchService() {
+		return new OapenSiteSearchService( env.getProperty("url_strapi_db") );
 	}
 	
 	

@@ -47,6 +47,8 @@ public class GlobalAdvice {
 		model.addAttribute("menuLeftSections", menuparser.getSectionsForMainLeft());
 		model.addAttribute("menuRightSections", menuparser.getSectionsForMainRight());
 		model.addAttribute("footerSections", menuparser.getSectionsForFooter());
+		
+		if (sections.isEmpty()) System.out.println("Warning: headerSections is empty! Not read from cache?");
     }	
 	
 }

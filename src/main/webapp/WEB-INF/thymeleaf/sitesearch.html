@@ -1,0 +1,107 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+</head>
+
+<body>
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-search-results oapen-main">
+	
+		<div class="container">
+		
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<a th:href="@{'/'}">Home</a>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">OAPEN Search</a>
+					</li>
+				</ul>
+			</nav>
+		
+			<div class="columns">
+			
+				<!-- main content left -->
+				<div class="column is-three-quarters">
+				
+					<article class="is-clearfix">
+						
+						<div class="oapen-primary content">
+						
+							<h1>Search this site</h1>
+							
+							<form class="field has-addons oapen-search-form" th:action="@{'/sitesearch'}" method="get">
+								<div class="control is-expanded">
+									<input name="term" class="input is-dark" type="text" placeholder="Search this site" 
+									 th:value="${param.term}" maxlength="200">
+								</div>
+								<div class="control">
+									<button class="button is-dark">
+										<span class="icon is-small">
+	      									<i class="fas fa-search"></i>
+	    								</span>
+									</button>
+								</div>
+							</form>
+							
+							<p th:if="${pagedResults.size()==0}" class="oapen-search-list-empty">
+								No documents match your search terms
+							</p>
+						
+							<ul class="oapen-search-list" th:if="${pagedResults.size()}">
+							
+								<li th:each="result: ${pagedResults}"
+								    th:with="url=${result.section}+'/'+${result.topic}+'/article/'+${result.slug}">
+								    
+									<a th:href="${url}"> 
+										<span th:text="${url}">https://domain/section/topic/article/1234</span>
+										<h3 th:text="${result.title}">Title</h3>
+									</a>
+									<p>
+										<span th:text="${#dates.format(result.updatedAt, 'dd-MM-yyyy HH:mm')}" class="oapen-search-result-date">date</span>
+										<span th:utext="${result.text}">description</span>
+									</p>
+									
+								</li>
+							</ul>
+							
+							
+							<div class="oapen-search-nav" th:if="${pagedResults.size()}" style="text-align:center">
+								
+								<div>
+									
+									<a th:if="${prevPage >= 0}" th:href="@{''(term=${param.term},page=${prevPage})}"
+									class="button is-ghost">&lt;</a>
+									<span th:if="${prevPage < 0}" class="button" disabled>&lt;</span>
+									
+									<a th:if="${nextPage >= 0}" th:href="@{''(term=${param.term},page=${nextPage})}"
+									class="button is-ghost">&gt;</a>
+									<span th:if="${nextPage < 0}" class="button" disabled>&gt;</span>
+									
+								</div>
+							
+							</div>
+						
+						</div>
+	
+					</article>
+				
+				</div>
+			
+			</div>
+
+		</div>
+
+	</main>
+
+</body>
+</html>
+
+
+
+

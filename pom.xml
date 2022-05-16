@@ -159,6 +159,13 @@
 			<version>2.1</version>
 			<scope>test</scope>
 		</dependency>		
+		
+		<!-- Site search -->
+		<dependency>
+			<groupId>com.trilobiet.oapen</groupId>
+			<artifactId>sitesearch</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>		
 
 	</dependencies>
 

@@ -24,6 +24,9 @@
 		<aop:advisor advice-ref="fileAdvice"
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.FileService.*(..))" />
 
+		<aop:advisor advice-ref="searchAdvice"
+			pointcut="execution(* com.trilobiet.oapen.sitesearch.OapenSiteSearchService.*(..))" />
+
 	</aop:config>
 
 	<cache:advice id="sectionAdvice">
@@ -55,6 +58,12 @@
 			<cache:cacheable method="getByName" cache="tkFilesCache" key="#name" />
 			<cache:cacheable method="getFirstWithName" cache="tkFilesCache" key="#name" />
 			<cache:cacheable method="getByFieldValue" cache="tkFilesCache" key="#field+'-'+#value" />
+		</cache:caching>
+	</cache:advice>
+
+	<cache:advice id="searchAdvice">
+		<cache:caching>
+			<cache:cacheable method="search" cache="tkSearchCache" key="#term" />
 		</cache:caching>
 	</cache:advice>
 

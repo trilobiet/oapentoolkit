@@ -35,25 +35,42 @@
 			<!-- logo, search/deposit/join -->
 			<nav class="oapen-topnav" role="navigation">
 
-				<div class="level topnav">
 
-					<div class="level-left">
+				<div class="columns is-vcentered topnav">
 
-						<a href="https://oapen.org">
-							<img th:src="@{/static-assets/images/layout/oapenlogo_01_colour.jpg}" width="150" alt="Logo Oapen" class="oapen-logo">
+					<div class="column is-2">
+						<a href="https://oapen.org"> <img
+							th:src="@{/static-assets/images/layout/oapenlogo_01_colour.jpg}"
+							width="150" alt="Logo Oapen" class="oapen-logo">
 						</a>
 
 					</div>
 
-					<div class="level-right">
+					<div class="column">
+
+						<form class="field has-addons oapen-search-header" th:action="@{'/sitesearch'}" method="get">
+							<div class="control is-expanded">
+								<input name="term" class="input is-link" type="text" placeholder="Search the toolkit" maxlength="200">
+							</div>
+							<div class="control">
+								<button class="button is-link">
+									<span class="icon is-small">
+      									<i class="fas fa-search"></i>
+    								</span>
+								</button>
+							</div>
+						</form>
+
+					</div>
+
+					<div class="column is-4-widescreen">
 
 						<ul class="buttons">
 
 							<li th:each="mnusection: ${headerSections}">
-								<a th:text="${mnusection.name}"
-								   th:href="@{'/'+${mnusection.slug}}"
+								<a th:text="${mnusection.name}" th:href="@{'/'+${mnusection.slug}}"
 								   class="button" th:classappend="oapen-btn-+${mnusection.slug}">
-									Button right
+									Button right 
 								</a>
 							</li>
 

@@ -39,4 +39,10 @@
 		timeToLiveSeconds="43200"
 		overflowToDisk="true"/>
 
+	<cache name="tkSearchCache"
+		maxBytesLocalHeap="1M"
+		timeToLiveSeconds="300"
+		overflowToDisk="true"/>
+
+
 </ehcache>
