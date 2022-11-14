@@ -2,66 +2,83 @@
 <html layout:decorate="~{layout/main}"
       xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
 
-  <head>
-    <title>Sitemap</title>
-  </head>
+<head>
+	<title>Sitemap</title>
+</head>
+  
   <body>
     <!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-    <div layout:fragment="content">
+    <main layout:fragment="content" class="section oapen-main section-faqs">
 
-		<div class="section">
+		<div class="container">
+		
+			<div class="content oapen-primary">
+			
+				<h1>Sitemap</h1>
+				
+				<p>
+					If everything else fails you can still resort to our sitemap.
+				</p>
+			
+			</div>
 
-			<div class="container content">
+			<nav class="oapen-section-expanded oapen-toc content">
+			
+				<div class="oapen-toc-header">
+					Sitemap
+				</div>
 
-				<h2>Sitemap</h2>
-
-				<!--<p th:text=${sections}></p>-->
-
-				<ul>
+				<ul class="oapen-topic-list">
+				
 					<li th:each="section: ${sections}">
 
-						<span th:text="${section.groupNumber}">groupNumber</span>
-						-
-						<span th:text="${section.index}">index</span>
-						<h3>
+						<h2 class="oa3pen-topic-header">
 							<a th:href="@{'/'+${section.slug}}" th:text="${section.name}">
 								Section name
 							</a>
-						</h3>
-
+						</h2>
+						
+						<br />
+						
 						<ul>
 							<li th:each="topic: ${section.topics}">
-
-								<span th:text="${topic.index}">topic index</span>
-
-								<a th:href="@{'/topic/'+${topic.slug}}" th:text="${topic.name}">
+							
+								<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}}" th:text="${topic.name}" style="font-size:1.2em">
 									topic name
 								</a>
+								
+								<!-- /* 
+								<span th:text="${topic.articles.size()}">3</span> */ -->
 
-								<ul>
+								<!-- Only list articles when more than one OR just one, but with a name different from the topic  -->
+								<ul th:if="${topic.articles.size() > 1 || (topic.articles.size() > 0 && topic.articles[0].title != topic.name) }"
+								 style="margin-bottom: 1em">
+								
 									<li th:each="article: ${topic.articles}">
+								
+										<!-- /* 		
+										<span th:text="${topic.articleDisplay}">display_type</span> */ -->
 
-										<a th:href="@{'/article/'+${article.slug}}"
-										   th:text="${article.title}">article title</a>
+										<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}"
+								   			th:text="${article.title}">article title</a>   
 									</li>
+									
 								</ul>
 								
-								
-
 							</li>
 						</ul>
+
+						<hr/>
 
 					</li>
 
 				</ul>
 
-				<p>I am in WEB-INF/thymeleaf/sitemap.html</p>
-
-			</div>
+			</nav>
 
 		</div>
 
-	</div>
+	</main>
 
 </body>
 </html>

@@ -81,6 +81,36 @@
 		}
 	}
 	
+	.oapen-search-list-item.similar {
+		
+		.oapen-search-list-similar-header {
+			margin: 1em 0;
+			font-size: .8rem;
+			color: #aaa;
+		}
+		
+		& + .similar .oapen-search-list-similar-header {
+			display: none;
+		} 
+		
+		div.oapen-search-list-item-body {
+			padding-left: 2em;
+			border-left: dotted 2px #ccc;
+			font-size: 80%;
+			
+			h3 {
+				font-size: .95rem
+			}
+			
+			&::first-child::before {
+				content: 'hallo';	
+			} 
+			
+		}	
+		
+	}
+	
+	
 }
 
 

@@ -55,17 +55,28 @@
 						
 							<ul class="oapen-search-list" th:if="${pagedResults.size()}">
 							
-								<li th:each="result: ${pagedResults}"
-								    th:with="url=${result.section}+'/'+${result.topic}+'/article/'+${result.slug}">
-								    
-									<a th:href="${url}"> 
-										<span th:text="${url}">https://domain/section/topic/article/1234</span>
-										<h3 th:text="${result.title}">Title</h3>
-									</a>
-									<p>
-										<span th:text="${#dates.format(result.updatedAt, 'dd-MM-yyyy HH:mm')}" class="oapen-search-result-date">date</span>
-										<span th:utext="${result.text}">description</span>
-									</p>
+								<li th:each="result,it: ${pagedResults}"
+								    th:with="url=${result.section}+'/'+${result.topic}+'/article/'+${result.slug}"
+								    class="oapen-search-list-item" 
+								     th:classappend="${!it.first && pagedResults[it.index-1].slug == result.slug?'similar':''}">
+								     	
+								    	<div class="oapen-search-list-similar-header" 
+								    		th:if="${!it.first && pagedResults[it.index-1].slug == result.slug}">similar results:
+								    	</div>
+								     
+									    <div class="oapen-search-list-item-body"> 
+									    
+											<a th:href="${url}"> 
+												<span th:text="${url}">https://domain/section/topic/article/1234</span>
+												<h3 th:text="${result.title}">Title</h3>
+											</a>
+											<p>
+												<span th:text="${#dates.format(result.updatedAt, 'dd-MM-yyyy HH:mm')}" class="oapen-search-result-date">date</span>
+												<span th:utext="${result.text}">description</span>
+											</p>
+										
+										</div>
+									
 									
 								</li>
 							</ul>
