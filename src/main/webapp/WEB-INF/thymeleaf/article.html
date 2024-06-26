@@ -30,14 +30,27 @@
 							
 								<div class="oapen-article-pubdate">
 									Published  
-									<span th:text="${#temporals.format(article.updatedAt,'d MMMM yyyy')}">
-										16 July 2020
+									<span th:text="${#temporals.format(article.published_at,'MMMM d yyyy')}">
+										July 16 2020
 									</span>
+									| Updated  
+									<span th:text="${#temporals.format(article.updated_at,'MMMM d yyyy')}">
+										July 16 2020
+									</span>
+								</div>
+								
+								<div th:if="${!article.author.empty}" th:utext="${article.author}">
+									Author Name
 								</div>
 
 								<div th:utext="${article.content}" class="content">
 									Article content
 								</div>
+								
+								<div th:if="${!article.doi.empty}" style="font-weight:bold;font-size:90%">
+									<hr style="border-top: solid 1px #ccc"/>
+									Doi: <a th:href="${'https://doi.org/'+article.doi}" th:text="${article.doi}" />
+								</div> 
 								
 							</div>
 		
@@ -67,7 +80,7 @@
 
 					<div class="oapen-article-update">
 						Last edited on 
-						<span th:text="${#temporals.format(article.updatedAt,'d MMMM yyyy, ''at'' HH:mm (Z)')}">
+						<span th:text="${#temporals.format(article.updated_at,'d MMMM yyyy, ''at'' HH:mm (Z)')}">
 							17 July 2020, at 11:21 (+0100).
 						</span>
 					</div>

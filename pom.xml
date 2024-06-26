@@ -28,10 +28,10 @@
 		<dependency>
 			<groupId>com.trilobiet</groupId>
 			<artifactId>graphqlweb</artifactId>
-			<version>1.0.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/graphqlweb-0.0.42-jar-with-dependencies.jar</systemPath>
-		</dependency>	
+			<version>0.0.46</version>
+			<scope>system</scope> 
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/graphqlweb-0.0.46-jar-with-dependencies.jar</systemPath>
+		</dependency>
 	
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -192,7 +192,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
+				<version>3.4.0</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>

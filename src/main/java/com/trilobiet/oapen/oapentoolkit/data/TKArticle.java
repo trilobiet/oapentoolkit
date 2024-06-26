@@ -17,8 +17,24 @@ public class TKArticle extends ArticleImp {
 	@GraphQLIgnore
 	private static final long serialVersionUID = 1L;
 
-	private String references, sources, resources, keywords;
-	
+	private String author, doi, references, sources, resources, keywords;
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getDoi() {
+		return doi;
+	}
+
+	public void setDoi(String doi) {
+		this.doi = doi;
+	}
+
 	public String getReferences() {
 		return references;
 	}

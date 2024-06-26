@@ -13,7 +13,7 @@
 	<main class="section oapen-main" layout:fragment="content">
 
 		<th:block th:fragment="toolkitmetadata" 
-			th:if="${article.sources!=null || article.references!=null || article.resources!=null}">
+			th:if="${!article.sources.empty || !article.references.empty || !article.resources.empty}">
 			
 			<div class="oapen-article oapen-toolkit-metadata">
 			
