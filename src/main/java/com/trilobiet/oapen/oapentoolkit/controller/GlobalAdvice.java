@@ -42,6 +42,7 @@ public class GlobalAdvice {
     public void addAttributes(Model model) throws Exception {
 
 		List<SectionImp> sections = sectionService.getSections();
+		
 		OapenMenuParser<SectionImp> menuparser = new OapenMenuParser<>(sections);
 		model.addAttribute("headerSections", menuparser.getSectionsForHeader());
 		model.addAttribute("menuLeftSections", menuparser.getSectionsForMainLeft());

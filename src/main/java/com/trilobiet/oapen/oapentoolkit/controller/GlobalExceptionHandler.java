@@ -42,6 +42,7 @@ public class GlobalExceptionHandler {
 		log.debug( ex );
 		return "error/notfound";
 	}
+
 	
 }
 

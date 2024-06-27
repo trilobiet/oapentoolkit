@@ -1,14 +1,14 @@
 package com.trilobiet.oapen.oapentoolkit.rss.hypotheses;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.trilobiet.oapen.oapentoolkit.rss.RssException;
 import com.trilobiet.oapen.oapentoolkit.rss.RssItem;
@@ -18,7 +18,7 @@ public class RssTest {
 	private final String host = "https://oapen.hypotheses.org/feed";
 	private HypothesesRssService rssService;
 	
-	@Before
+	@BeforeEach
 	public void setHost() {
 		rssService = new HypothesesRssService(host);
 	}

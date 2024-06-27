@@ -1,13 +1,9 @@
 package com.trilobiet.oapen.oapentoolkit.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.GenericArticleDao;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileImp;
@@ -34,20 +30,23 @@ import com.trilobiet.oapen.oapentoolkit.data.TKArticleList;
 import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
 import com.trilobiet.oapen.oapentoolkit.rss.RssService;
 import com.trilobiet.oapen.oapentoolkit.rss.hypotheses.HypothesesRssService;
-import com.trilobiet.oapen.sitesearch.OapenSiteSearchService;
+import com.trilobiet.oapen.sitesearch.MockSiteSearchService;
 import com.trilobiet.oapen.sitesearch.SiteSearchService;
 
 @Configuration
 @ComponentScan (
-	basePackages = {"com.trilobiet.oapen.oapentoolkit"},
-	excludeFilters = {
-			@Filter( type=FilterType.ANNOTATION, value=EnableWebMvc.class ) 
-	}
+	basePackages = {"com.trilobiet.oapen.oapentoolkit"}
+	//, excludeFilters = {
+	//		@Filter( type=FilterType.ANNOTATION, value=EnableWebMvc.class ) 
+	//}
 )
 public class RootConfiguration {
 	
-	@Autowired
-	public Environment env;	
+	@Value("${url_strapi}")
+	private String urlStrapi = "";	
+
+	@Value("${url_feed_hypotheses}")
+	private String urlHypotheses = "";
 	
 	@Bean
 	public StringFunction markdownflavour() {
@@ -61,7 +60,9 @@ public class RootConfiguration {
 
 	@Bean(name = "sectionService")
 	public HtmlSectionService<SectionImp> sectionService() {
-		return new HtmlSectionService<>( env.getProperty("url_strapi"), sectionMdConverter());
+		
+		// System.out.println("URL Strapi: " + urlStrapi);
+		return new HtmlSectionService<>(urlStrapi, sectionMdConverter());
 	}
 	
 	@Bean 
@@ -71,7 +72,7 @@ public class RootConfiguration {
 
 	@Bean(name = "topicService")
 	public HtmlTopicService<TopicImp> topicService() {
-		return new HtmlTopicService<>( env.getProperty("url_strapi"), topicMdConverter());
+		return new HtmlTopicService<>(urlStrapi, topicMdConverter());
 	}
 	
 	@Bean 
@@ -81,7 +82,7 @@ public class RootConfiguration {
 	
 	@Bean
 	public GenericArticleDao<TKArticle> articleDao() {
-		return new GenericArticleDao<>(env.getProperty("url_strapi"), TKArticle.class, TKArticleList.class);
+		return new GenericArticleDao<>(urlStrapi, TKArticle.class, TKArticleList.class);
 	}
 	
 	@Bean(name = "articleService") 
@@ -97,18 +98,18 @@ public class RootConfiguration {
 
 	@Bean 
 	public HtmlSnippetService<SnippetImp> snippetService() {
-		return new HtmlSnippetService<>( env.getProperty("url_strapi"), snippetMdConverter() );
+		return new HtmlSnippetService<>(urlStrapi, snippetMdConverter() );
 	}
 	
 	@Bean 
 	public HtmlFileService<FileImp> fileService() {
-		return new HtmlFileService<>( env.getProperty("url_strapi") );
+		return new HtmlFileService<>(urlStrapi );
 	}
 	
 	
 	@Bean 
 	public RssService rssService() {
-		return new HypothesesRssService(env.getProperty("url_feed_hypotheses"));
+		return new HypothesesRssService(urlHypotheses);
 	}
 	
 	@Bean 
@@ -117,7 +118,7 @@ public class RootConfiguration {
 	}
 	@Bean
 	public GenericSectionDao<SectionImp> sectionDao() {
-		return new GenericSectionDao<>(env.getProperty("url_strapi"), SectionImp.class, SectionList.class);
+		return new GenericSectionDao<>(urlStrapi, SectionImp.class, SectionList.class);
 	}
 
 	@Bean 
@@ -127,7 +128,7 @@ public class RootConfiguration {
 	
 	@Bean 
 	public SiteSearchService siteSearchService() {
-		return new OapenSiteSearchService( env.getProperty("url_strapi_db") );
+		return new MockSiteSearchService();
 	}
 	
 	

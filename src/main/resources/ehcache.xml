@@ -1,48 +1,74 @@
-<ehcache xsi:noNamespaceSchemaLocation="ehcache.xsd"
-	updateCheck="true"
-	monitoring="autodetect"
-	dynamicConfig="true"
-	maxBytesLocalHeap="200M">
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns='http://www.ehcache.org/v3'
+	xmlns:jsr107='http://www.ehcache.org/v3/jsr107'>
+	
+	<!-- specify cache persistence directory --> <!-- alternatively use ${user.home} -->
+	<!-- Do not use disk - some list of objects are empty when coming from cache  -->
+	<!-- persistence directory="${java.io.tmpdir}/ehcache/oatoolkit2024" /> -->
+	
+	<cache alias="tkSectionsCache">
+		<expiry>
+			<ttl unit="seconds">330</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">100</heap>
+		</resources>
+	</cache>	
 
-	<diskStore path="java.io.tmpdir/ehcache/oapentoolkit"/>
-	<sizeOfPolicy maxDepth="10000" maxDepthExceededBehavior="continue"/>
+	<cache alias="tkTopicsCache">
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">500</heap>
+		</resources>
+	</cache>
 	
-	<!-- Total of added caches may not exceed maxBytesLocalHeap of entire cache -->
-	
-	<cache name="tkSectionsCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="330"
-		overflowToDisk="true"/>
-	
-	<cache name="tkTopicsCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="300"
-		overflowToDisk="true"/>
-	
-	<cache name="tkArticlesCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="270"
-		overflowToDisk="true"/>
+	<cache alias="tkArticlesCache">
+		<expiry>
+			<ttl unit="seconds">270</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">500</heap>
+		</resources>
+	</cache>	
 		
-	<cache name="tkFilesCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="36000"
-		overflowToDisk="true"/>
+	<cache alias="tkFilesCache">
+		<expiry>
+			<ttl unit="seconds">3600</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">500</heap>
+		</resources>
+	</cache>	
 
-	<cache name="tkKeywordsCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="43200"
-		overflowToDisk="true"/>
-		
-	<cache name="tkRssCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="43200"
-		overflowToDisk="true"/>
+	<cache alias="tkKeywordsCache">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.util.TreeMap</value-type>
+		<expiry>
+			<ttl unit="seconds">43200</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">1000</heap>
+		</resources>
+	</cache> 
+	
+	<cache alias="tkRssCache">
+		<expiry>
+			<ttl unit="seconds">6000</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">1000</heap>
+		</resources>
+	</cache> 
 
-	<cache name="tkSearchCache"
-		maxBytesLocalHeap="1M"
-		timeToLiveSeconds="300"
-		overflowToDisk="true"/>
+	<cache alias="tkSearchCache">
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">1000</heap>
+		</resources>
+	</cache> 
 
-
-</ehcache>
+</config>

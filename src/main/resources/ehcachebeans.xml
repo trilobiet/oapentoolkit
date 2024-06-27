@@ -9,10 +9,10 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/cache
     http://www.springframework.org/schema/cache/spring-cache.xsd">
-
+    
 	<aop:config>
 
-		<aop:advisor advice-ref="sectionAdvice"
+		<aop:advisor advice-ref="sectionAdvice"  
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.SectionService.*(..))" />
 
 		<aop:advisor advice-ref="topicAdvice"
@@ -34,7 +34,7 @@
 			<cache:cacheable method="getSections" cache="tkSectionsCache" key="#root.methodName" />
 			<cache:cacheable method="getSectionBySlug" cache="tkSectionsCache" key="#slug" />
 		</cache:caching>
-	</cache:advice>
+	</cache:advice> 
 
 	<cache:advice id="topicAdvice">
 		<cache:caching>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="lifecycle">
+
+	<!-- /* 	
+	<div class="title is-6 oapen-section-caption">Research Life Cycle</div> 
+	*/-->
+
+	<div class="columns is-centered">
+
+		<div class="column is-one-third-desktop">
+		
+			<div class="oapen-cycle">
+			
+				<img th:src="@{/static-assets/images/lifecycleblue.svg}" alt="toolkit lifecycle" /> 
+				
+			</div>	
+
+		</div>
+
+		<div class="column is-one-third-desktop oapen-toolkit-tree">
+		
+			<div class="content">
+
+				<h2>Research life cycle</h2>
+				
+				<p th:utext="${lifecycleCaption}">
+					The toolkit makes use of a typical research lifecycle, 
+					consisting of the following eight stages. 
+					Click on a stage to find related articles.
+				</p>
+				
+				<ul class="oapen-toolkit-topiclist">
+					<li th:each="topic:${toolkittopics}">
+
+						<a th:href="@{'/'+${toolkitsection.slug}+'/'+${topic.slug}}"
+						   th:text="${topic.name}">topic name</a>
+						   
+						<div class="clickloader is-hidden oapen-toolkit-dropdown" th:data-src="@{'/'+${toolkitsection.slug}+'/listtopic/'+${topic.slug}}+'/?rows=4 #ArticleList'">
+						</div>
+						   
+					</li>
+				</ul>
+				
+			</div>	
+
+		</div>
+		
+		<div th:if="${toolkitInfoBox}" class="column is-one-third-desktop oapen-toolkit-infobox">
+			<div class="content" th:utext="${toolkitInfoBox}">
+				Hier uw info box
+			</div>
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+
