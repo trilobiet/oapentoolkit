@@ -30,8 +30,8 @@ import com.trilobiet.oapen.oapentoolkit.data.TKArticleList;
 import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
 import com.trilobiet.oapen.oapentoolkit.rss.RssService;
 import com.trilobiet.oapen.oapentoolkit.rss.hypotheses.HypothesesRssService;
-import com.trilobiet.oapen.sitesearch.MockSiteSearchService;
 import com.trilobiet.oapen.sitesearch.SiteSearchService;
+import com.trilobiet.oapen.sitesearch.mysql.MySQLSiteSearchService;
 
 @Configuration
 @ComponentScan (
@@ -47,6 +47,9 @@ public class RootConfiguration {
 
 	@Value("${url_feed_hypotheses}")
 	private String urlHypotheses = "";
+	
+	@Value("${url_mysql_search}")
+	private String urlMysqlSearch = "";
 	
 	@Bean
 	public StringFunction markdownflavour() {
@@ -128,7 +131,10 @@ public class RootConfiguration {
 	
 	@Bean 
 	public SiteSearchService siteSearchService() {
-		return new MockSiteSearchService();
+		
+		// Use only fields from table 'article' for which a full-text index has been created 
+		String searchfields = "title, summary, content, `references`, resources, sources, doi, author, tags, keywords";
+		return new MySQLSiteSearchService(urlMysqlSearch, searchfields);
 	}
 	
 	

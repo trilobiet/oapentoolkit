@@ -25,7 +25,7 @@
 			pointcut="execution(* com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.FileService.*(..))" />
 
 		<aop:advisor advice-ref="searchAdvice"
-			pointcut="execution(* com.trilobiet.oapen.sitesearch.OapenSiteSearchService.*(..))" />
+			pointcut="execution(* com.trilobiet.oapen.sitesearch.mysql.MySQLSiteSearchService.*(..))" />
 
 	</aop:config>
 
