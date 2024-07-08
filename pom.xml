@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -11,18 +13,13 @@
 	</parent>
   	
 	<groupId>com.trilobiet.oapen</groupId>
-	<artifactId>oapentoolkit</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>oabookstoolkit</artifactId>
 	<version>2.0.0</version>
-	<name>oapentoolkit</name>
+	<name>oabookstoolkit</name>
 	<description>Oabooks Toolkit website</description>
 	
 	<properties>
 		<java-version>11</java-version>
-		<!--
-	    <maven.compiler.source>${java-version}</maven.compiler.source>
-	    <maven.compiler.target>${java-version}</maven.compiler.target>
-	    -->
 	</properties>
 
 	<dependencies>
@@ -127,7 +124,6 @@
 			<version>1.0.1</version>
 		</dependency>		
 
-
 	</dependencies>
 	
 	
@@ -156,8 +152,6 @@
 
 	<build>
 	
-		<finalName>oapentoolkit</finalName>
-
 		<plugins>
 
 			<plugin>

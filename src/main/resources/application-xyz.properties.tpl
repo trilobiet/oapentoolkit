@@ -20,3 +20,8 @@ google_analytics_id=UA-????
 blog_categories=
 
 dbcon=jdbc:mysql://strapi.xyz.com:3306/dbname?user=username&password=userpassword
+
+logging.file.name=${user.home}/websites/logs/oabooks-toolkit.log
+logging.level.root=INFO
+logging.level.com.trilobiet.oapen.oapentoolkit=INFO
+logging.logback.rollingpolicy.max-history=40

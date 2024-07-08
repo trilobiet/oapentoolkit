@@ -47,7 +47,7 @@
 									Article content
 								</div>
 								
-								<div th:unless="${!#strings.isEmpty(article.doi)}" style="font-weight:bold;font-size:90%">
+								<div th:if="${!#strings.isEmpty(article.doi)}" style="font-weight:bold;font-size:90%">
 									<hr style="border-top: solid 1px #ccc"/>
 									Doi: <a th:href="${'https://doi.org/'+article.doi}" th:text="${article.doi}" />
 								</div> 
