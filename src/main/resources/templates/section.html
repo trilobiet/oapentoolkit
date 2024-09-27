@@ -10,39 +10,99 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-main" th:classappend="${bodyClass}">
-
-		<div class="container">
+	<main layout:fragment="content" class="oapen-main" th:classappend="${bodyClass}">
 		
-			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+		<div class="section">
 		
-			<div class="content oapen-primary">
-
-				<h1 th:text="${section.name}">Section name</h1>
-
-				<div th:utext="${section.description}">
-					Section description
-				</div>
-
-			</div>
-			
-			<div class="oapen-toc content">
-
-				<div class="oapen-toc-header">In this section</div>
+			<div class="container">
+		
+				<div class="oapen-section-intro">
 				
-				<hr class="is-hidden"/>
+					<!--/* <div class="title is-4" th:text="${'Introduction ' + section.name}">Introduction ...</div> */-->
+					<h3 class="title is-4">Introduction</h3>
 
-				<ul th:classappend="${#lists.size(section.topics) gt 7} ? 'oapen-two-col'">
-					<li th:each="topic: ${section.topics}">
-						<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}}" th:text="${topic.name}">
-							Topic name
-						</a>
-					</li>
-				</ul>
-
+					<div class="content" th:utext="${section.description}">
+						Section description
+					</div>
+					
+				</div>
+			
 			</div>
-
+				
 		</div>
+		
+		<!-- topics in this section -->
+		<section th:each="topic: ${sectiontopics}"
+			class="section oapen-sheet-group oapen-shallow">
+		
+			<div class="container">
+			
+				<div class="columns is-variable is-0">
+			
+					<div class="column is-three-fifths">
+					
+						<div class="oapen-sheet">
+				
+							<div class="title is-6 oapen-sheet-caption"
+								th:text="${sectiongroupnames[section?.groupNumber?:0]}">
+								Group Header
+							</div> 
+							
+							<hr class="is-hidden">
+							
+							<div class="content">
+							
+								<h1>
+									<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}}" th:text="${topic.name}" >
+										Topic name
+									</a>	
+								</h1>
+		
+								<div th:utext="${topic.description}">
+									Topic Description
+								</div>
+								
+								<div th:if="${!#strings.isEmpty(topic.description)}">
+									<a class="oapen-readmore" th:href="@{'/'+${section.slug}+'/'+${topic.slug}}">
+										read more&hellip;
+									</a>
+								</div>
+							
+							</div>
+							
+						</div>	
+						
+					</div>
+					
+					<div class="column">
+					
+						<div class="oapen-sheet">
+					
+							<div class="title is-6 oapen-sheet-caption">Articles</div> 
+							
+							<hr class="is-hidden">
+						
+							<ul class="oapen-toc oapen-toc-articles">
+								<li th:each="article, istat: ${topic.articles}" th:if="${istat.index<2}">
+									<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}"
+						   				th:text="${article.title}">article title</a>
+						   			<div th:text="${article.summary}">Summary</div>	
+								</li>
+								<li th:if="${topic.articles.size>2}">
+									<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}}">more</a>
+								</li>
+							</ul>
+						
+						</div>
+					
+					</div>	
+				
+				</div>
+				
+			</div>
+		
+		</section>
+		
 
 	</main>
 

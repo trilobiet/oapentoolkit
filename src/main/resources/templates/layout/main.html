@@ -3,88 +3,45 @@
 
 <head>
 
-	<meta charset="utf-8"/>
-	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">OA Books Toolkit</title>
-	<link rel="stylesheet" href="https://oapen.org/static-assets/css/styles.css?v=1.17"/>
-	<link rel="stylesheet" href="https://oapen.org/static-assets/css/contenttypes.css?v=1.17"/>
-	<link rel="stylesheet" th:href="@{/static-assets/css/toolkit.css?v=1.44}"/>
+
+	<link rel="stylesheet" th:href="@{/static-assets/css/fonts.css?v=1.02}">
+	<link rel="stylesheet" th:href="@{/static-assets/css/toolkit.css?v=2.03}" media="screen">
+	<link rel="stylesheet" th:href="@{/static-assets/css/printstyles.css?v=1.03}" media="print">
 	
-	<link rel="stylesheet" th:href="@{/static-assets/fontawesome-pro-5.12.1-web/css/all.min.css?v=1.07}"/>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<!--/* TODO: do not choose not all, be specific  */-->
+	<link rel="stylesheet" th:href="@{/static-assets/fontawesome-pro-6.6.0-web/css/all.min.css?v=1.02}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 	
 	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
 	<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">	
 	
-    <meta property="og:title" content="OA Books Toolkit"/>
-    <meta property="og:image" content="//oapen.org/static-assets/images/oapenlogo-banner.png"/>
+    <meta property="og:title" content="OA Books Toolkit">
+    <meta property="og:image" th:content="@{/static-assets/images/oapen-logo-bg-yellow.png}">
 	
 </head>
 
-<body th:classappend="${bodyClass}">
+<body th:classappend="${(bodyClass?:'') + ' oapen-sectiongroup-' + (section?.groupNumber?:0)}">
 
 	<!--
 		HEADER
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<header id="OapenHeader">
+	
+		<div class="section oapen-header">
 
-		<div class="container">
+			<div class="container">
+				<th:block th:insert="include/header :: siteheader">
+					Header
+				</th:block>
+			</div>
 
-			<!-- logo, search/deposit/join -->
-			<nav class="oapen-topnav" role="navigation">
+		</div>
 
 
-				<div class="columns is-vcentered topnav">
-
-					<div class="column is-2">
-						<a href="https://oapen.org"> <img
-							th:src="@{/static-assets/images/layout/oapenlogo 01 colour - open access.png}"
-							width="150" alt="Logo Oapen" class="oapen-logo">
-						</a>
-
-					</div>
-
-					<div class="column">
-
-						<form class="field has-addons oapen-search-header" th:action="@{'/sitesearch'}" method="get">
-							<div class="control is-expanded">
-								<input name="term" class="input is-link" type="text" placeholder="Search the toolkit" maxlength="200">
-							</div>
-							<div class="control">
-								<button class="button is-link">
-									<span class="icon is-small">
-      									<i class="fas fa-search"></i>
-    								</span>
-								</button>
-							</div>
-						</form>
-
-					</div>
-
-					<div class="column is-4-widescreen">
-
-						<ul class="buttons">
-
-							<li th:each="mnusection: ${headerSections}">
-								<a th:text="${mnusection.name}" th:href="@{'/'+${mnusection.slug}}"
-								   class="button" th:classappend="oapen-btn-+${mnusection.slug}">
-									Button right 
-								</a>
-							</li>
-
-						</ul>
-
-					</div>
-
-				</div>
-
-			</nav>
-
-		</div><!-- /container -->
-
-		<nav class="navbar oapen-mainnav" role="navigation">
+		<nav class="navbar oapen-mainnav">
 
 			<div class="container">
 
@@ -101,13 +58,7 @@
 
 					<ul class="navbar-start">
 					
-						<li>
-							<a class="navbar-item navbar-link is-arrowless" th:href="@{'/'}">
-								<i class="fas fa-home"></i>
-							</a>
-						</li>
-
-						<li th:each="mnusection: ${menuLeftSections}" class="oapen-nav-dropdown">
+						<li th:each="mnusection: ${menuLeftSections}" class="oapen-nav-dropdown oapen-nav-researchers">
 							<th:block th:insert="layout/submenu :: section_navigation">
 								sub menu
 							</th:block>
@@ -117,7 +68,7 @@
 					
 					<ul class="navbar-end oapen-nav-right">
 
-						<li th:each="mnusection: ${menuRightSections}" class="oapen-nav-dropdown">
+						<li th:each="mnusection: ${menuRightSections}" class="oapen-nav-dropdown oapen-nav-policies">
 							<th:block th:insert="layout/submenu :: section_navigation">
 								sub menu
 							</th:block>
@@ -133,12 +84,13 @@
 
 	</header>
 
+
 	<!--
 		MAIN
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<main layout:fragment="content">
 
-		<hr class="is-sr-only"/>
+		<hr class="is-sr-only">
 
 		<div class="container content">
 
@@ -170,144 +122,23 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<footer class="footer">
 
-		<hr class="is-sr-only"/>
+		<hr class="is-sr-only">
 
-		<div class="container">
+		<div class="container" th:insert="include/footer :: sitefooter">
 
-			<div class="oapen-ftr-header">
-				<div class="is-sr-only">Oapen - Publishing in European Networks</div>
-				<hr class="is-hidden"/>
-			</div>
-
-			<div class="columns oapen-footer-columns">
-
-		  		<div class="column oapen-footer-nav">
-
-		  			<ul class="menu-list">
-		  			
-						<li>
-							<a class="navbar-item navbar-link is-arrowless" th:href="@{'/'}">
-								Toolkit Home
-							</a>
-						</li>
-
-						<li th:each="mnusection: ${footerSections}">
-							<a th:href="@{'/'+${mnusection.slug}}"
-							   th:text="${mnusection.name}">
-							   Footer Menu Item
-							</a>
-						</li>
-						
-					</ul>	
-						
-					<br/>	
-						
-		  			<ul class="menu-list">
-
-						<li th:each="mnusection: ${headerSections}">
-							<a th:text="${mnusection.name}"
-							   th:href="@{'/'+${mnusection.slug}}">
-								Footer menu item 2
-							</a>
-						</li>
-
-					</ul>
-
-				</div><!-- /footer-nav -->
-
-				<div class="column">
-
-					<div class="oapen-newsletter">
-
-						<div class="title is-6">Newsletter</div>
-						<hr class="is-hidden"/>
-
-						<i class="fal fa-envelope-open-text"></i>
-
-						<ul>
-							<li>
-								<a href="http://eepurl.com/g5fuFr">
-									Subscribe to our newsletter
-								</a>
-							</li>
-						</ul>
-
-					</div>
-
-					<div class="oapen-social-links">
-
-						<div class="title is-6">Follow us on</div>
-						<hr class="is-hidden"/>
-
-						<ul>
-							<li>
-								<a href="https://twitter.com/oapenbooks">
-									<i class="fab fa-twitter-square"></i>
-									<span class="is-sr-only">Twitter</span>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.facebook.com/OAPENbooks">
-									<i class="fab fa-facebook-square"></i>
-									<span class="is-sr-only">Facebook</span>
-								</a>
-							</li>
-						</ul>
-
-					</div>
-
-				</div>
-
-				<div class="column oapen-addresses">
-
-					<hr class="is-sr-only"/>
-
-					<p>
-						OAPEN is based in the Netherlands, with its registered office in the National Library in The Hague.
-					</p>
-					<p>
-						Director: Niels Stern
-					</p>
-					<address>
-						Address:<br/>
-						OAPEN Foundation<br/>
-						Prins Willem-Alexanderhof 5<br/>
-						2595 BE The Hague
-					</address>
-					<p>
-						Websites:<br/>
-						OAPEN Home: <a href="https://library.oapen.org">www.oapen.org</a><br/>
-						OAPEN OA Books Toolkit: <a href="https://www.oabooks-toolkit.org/">www.oabooks-toolkit.org</a><br/>
-						DOAB: <a href="https://www.doabooks.org">www.doabooks.org</a>
-					</p>
-
-				</div>
-
-
-			</div><!-- /footer columns -->
-
-
-			<div class="content has-text-centered">
-
-				<div class="is-size-7">
-					&copy;2019-<span th:text="${#dates.year(#dates.createNow())}">2020</span> OAPEN
-					|
-					<a href="https://www.trilobiet.nl">website by Trilobiet</a>
-				</div>
-
-			</div>
+			Footer
 
 		</div>
 
 	</footer>
 
-	<!-- / Local version of the cdn scripts are available in static-assets/js/ in case the CDN disappears / -->
+	<!--/* Local version of the cdn scripts are available in static-assets/js/ in case the CDN disappears */-->
 
 	<script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-	<script th:src="@{/static-assets/js/scripts.js?v=1.01}"></script>
+	<!--/*<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>*/-->
+	<script th:src="@{/static-assets/js/scripts.js?v=1.04}"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-	<!-- /* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */ -->
+	<!--/* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */-->
 	
 	<th:block th:insert="include/googleanalyticsscript :: script">
 		Google Analytics
@@ -317,7 +148,7 @@
 		Cookies Consent Popup
 	</th:block>
 	
-	<!----------------------------------- 
+	<!-- ================================ 
 	Website by	 
     _____     _ _       _     _      _   
    |_   _| __(_) | ___ | |__ (_) ___| |_ 
@@ -326,7 +157,7 @@
      |_||_|  |_|_|\___/|_.__/|_|\___|\__|
                                        	
 	2020 www.trilobiet.nl
-	------------------------------------>
+	================================ -->
 
 </body>
 </html>

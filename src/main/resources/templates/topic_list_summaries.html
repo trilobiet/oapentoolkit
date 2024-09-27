@@ -8,78 +8,97 @@
 <body>
 
 	<!--
-		BODY
+		BODY Topic
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
-
-		<div class="container">
+	<main layout:fragment="content" class="oapen-main" th:classappend="${bodyClass + ' ' + topic.cssClass}">
+	
+		<div class="section">
 		
-			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
-		
-			<div class="columns">
+			<div class="container">
 			
-				<!-- main content -->
-				<div class="column is-three-quarters"> 
+				<div class="oapen-topic-intro">
 				
-					<div class="content oapen-primary">
+					<h3 class="title is-4">Introduction</h3>
+					
+					<h1 th:utext="${topic.name}">
+						Topic title (name)
+					</h1>
 
-						<h1 th:text="${topic.name}">
-							Topic title
-						</h1>
+					<div class="content" th:utext="${topic.description}">
+						Topic description
+					</div>
+					
+				</div>
+			
+			</div>
+				
+		</div>
+	
+
+		<!-- articles in this topic -->
+		<section class="section oapen-sheet-group oapen-shallow oapen-sectiongroup-researchers">
 		
-						<div th:if="${topic.description}" th:utext="${topic.description}" 
-						     class="topic" th:classappend="${topic.cssClass}">
-		
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit.
-							</p>
-		
+			<div class="container">
+			
+				<div class="columns is-variable is-8">
+			
+					<div class="column is-three-fifths">
+					
+						<div class="oapen-sheet">
+					
+							<div class="title is-6 oapen-sheet-caption" th:text="${topic.name} + ' - articles'">
+								Topic Articles
+							</div> 
+							
+							<hr class="is-hidden">
+							
+							<ul class="oapen-article-list">
+							
+								<li th:each="article: ${articles}">
+
+									<h2>
+										<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}" 
+										   th:text="${article.title}">
+											Article title
+										</a>	
+									</h2>
+									
+									<div th:if="${article.summary!=''}" th:utext="${article.summary}">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+										Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+										Phasellus et placerat elit.
+									</div>
+					
+									<p>
+										<a class="oapen-readmore" th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
+											read more&hellip;
+										</a>
+									</p>
+							
+								</li>
+							</ul>
+							
 						</div>
 						
 					</div>	
 					
-					<div class="oapen-summaries">
+					<div class="column">
 					
-						<article th:each="article: ${articles}" class="content oapen-summary">
-			
-							<h2 th:text="${article.title}">
-								Article title
-							</h2>
-
-							<div th:if="${article.summary!=''}" th:utext="${article.summary}">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit.
-							</div>
-			
-							<p class="oapen-more">
-								<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
-									Read more
-								</a>
-							</p>
-			
-						</article>
-						
-					</div>	
+						<div class="oapen-sheet">
 					
-				</div>	
-					
-				<!-- sidebar -->
-				<div class="column">
-				
-					<th:block th:insert="include/currentsection :: topics"/>
-				
+							<th:block th:insert="include/currentsection :: topics"/>
+							
+						</div>
+							
+					</div>
+							
 				</div>
-
+				
 			</div>
-			
-		</div>	
+		
+		</section>
 
 	</main>
 

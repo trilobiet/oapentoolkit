@@ -1,0 +1,48 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>OApen web - hare Article</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main class="section oapen-main" layout:fragment="content">
+
+		<aside th:fragment="share" class="oapen-section-topics oapen-article-share">
+		
+			<div class="title is-6 oapen-sheet-caption oapen-sidebar-caption">Share</div>
+			
+			<hr class="is-hidden">
+			
+			<ul>
+				<li>
+					<a class="twitter-share-button"
+		  				th:href="${'https://twitter.com/share?url='+#uris.escapePath(#httpServletRequest.requestURL)}">
+		  				<span class="is-sr-only">X (Twitter)</span>
+		  				<i class="fa-brands fa-x-twitter fa-2xl"></i>
+					</a>
+				<li>	
+				<li>
+					<a class="linkedin-share-button"
+		  				th:href="${'https://www.linkedin.com/sharing/share-offsite/?url='+#uris.escapePath(#httpServletRequest.requestURL)}">
+		  				<span class="is-sr-only">LinkedIn</span>
+		  				<i class="fa-brands fa-linkedin fa-2xl"></i>
+					</a>
+				<li>	
+			</ul>	
+			
+		</aside>
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+

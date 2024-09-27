@@ -1,0 +1,512 @@
+
+body {
+	//font-size: 98%;
+	--groupbgcolor: #eee;
+	--grouptitlecolor: #{$introsection_title_color};
+	--articlebgcolor: #{$article_bg_color};
+	--metadatabgcolor: #{$article_metadata_bg_color};
+	--metadatacaptioncolor: #{$article_metadata_caption_color};
+	--metadatatextcolor: #{$article_metadata_text_color};
+	--metadatalinkcolor: #{$article_metadata_link_color};
+}
+
+// CSS Variables depending on context
+.oapen-sectiongroup-1 {
+	--groupbgcolor: #{$introsection_researchers_bg_color};
+	--grouptitlecolor: #{$introsection_researchers_title_color};
+	--articlebgcolor: #{$article_researchers_bg_color};
+	--metadatabgcolor: #{$article_researchers_metadata_bg_color};
+}
+
+.oapen-sectiongroup-2 {
+	--groupbgcolor: #{$introsection_policies_bg_color};
+	--grouptitlecolor: #{$introsection_policies_title_color};
+	--articlebgcolor: #{$article_policies_bg_color};
+	--metadatabgcolor: #{$article_policies_metadata_bg_color};
+}
+
+// START Styles to @extend ------
+._introcaption_ {
+	font-family: $mono;
+	font-weight: $medium;
+	color: $grey_5;
+	text-transform: uppercase;
+}
+
+._subcaption_ {
+
+	font-family: $condensed;
+	font-weight: $semibold;
+	text-transform: uppercase;
+	color: $black_1;
+	line-height: 1.125;
+	padding-bottom: .5em;
+	margin-bottom: 0;
+	border-bottom: solid 2px $black_1;
+}
+// END Styles to @extend ------
+
+
+
+/* // No full-width banners 
+main .section {
+	max-width: 1344px;
+	margin-left: auto;
+	margin-right: auto;
+}
+*/
+
+.oapen-readmore {
+	line-height: 2;		
+	font-weight: $medium;
+	font-size: 95%;
+	@include fa-before('\f105', .8em, $valign:baseline);
+}
+
+
+.oapen-sheet-group {
+	
+	position: relative;
+	margin-top: 4rem;
+	
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: -4rem;
+		height: 12rem;
+		right: 0;
+		z-index: -1;
+		background-color: var(--groupbgcolor); // default
+	}
+	
+	&.oapen-shallow:after {
+		top: -2rem;
+		height: 6rem;
+	}
+	
+	.oapen-sheet {
+		
+		padding: 1.5rem;
+		margin: -1.5rem -1.5rem 0 -1.5rem; 
+		background-color: $white_1;
+	}
+
+	// multi column sheets should have a larger gap here
+	.columns.is-variable.is-8 {
+	  --columnGap: 2.5rem; // override Bulma's value here
+	}
+	
+	p {
+		font-family: $sans;
+		//font-weight: $medium;
+		color: $text; // maybe a link...
+	}
+
+	h1, h2, h3 {
+		font-family: $sans;
+		font-weight: $regular;
+		font-size: $size-3;
+		margin: .2em 0 .5em 0;
+		line-height: 1.25;
+		color: var(--grouptitlecolor);
+		a {
+			color: var(--grouptitlecolor);
+		}
+	}
+
+	img {
+		float: left;
+		margin: 1em 1em 0 0;
+		width: 150px;
+	}
+
+}
+
+.oapen-sheet {
+	
+	.title a {
+		color: var(--grouptitlecolor);
+	}
+	
+}
+
+
+.title.oapen-sheet-caption {
+	
+	@extend ._subcaption_;
+}
+
+.oapen-sidebar {
+	
+	.oapen-sidebar-caption {
+		@extend ._subcaption_;
+	}
+	
+	aside {
+		margin-bottom: 2rem;
+	}
+}
+
+.oapen-toc {
+	
+	margin: .75em 0;
+	
+	a {
+		color: $grey_5;
+		&:hover {
+			color: $link;
+		}		 
+	}
+
+	li {
+		margin: 0 0 0 .8rem;
+		@include fa-before('\f105', .6rem, .2rem, $valign:baseline) {
+			margin-left: -.8rem;
+		}
+	}
+
+	&.oapen-toc-articles {
+		
+		a {
+			font-weight: bold;
+			color: var(--grouptitlecolor);
+		}
+		
+		li {
+			margin: 0 0 .3rem .8rem;
+			@include fa-before('\f105', .6rem, .2rem, $valign:baseline){
+				margin-left: -.8rem;
+				font-weight: bold;
+				color: var(--grouptitlecolor);
+			}	
+		}
+	}
+}
+
+
+.oapen-article-list, .oapen-topic-list {
+	
+	li {
+		margin: 1em 0;
+		border-bottom: solid 2px #eee;
+		padding-bottom: 1em;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.oapen-article-keywords, .oapen-article-share {
+	
+	ul {
+		margin: .75em 0;
+	}	
+	
+	li {
+		display: inline;
+	}
+	
+	a {
+		color: $black_1;
+		
+		&:hover {
+			color: $grey_5;
+		}	
+	}
+}
+
+
+.oapen-section-intro, 
+.oapen-topic-intro,
+.oapen-article-intro {
+	
+	@extend .is-clearfix::after; 
+	
+	width: 100%;
+	
+	.title {
+		@extend ._introcaption_;
+		margin-bottom: .5em;
+		padding-bottom: .5em;
+		border-bottom: solid 2px $grey_5;
+	}
+	
+	h1 {
+		font-family: $sans;
+		font-size: $size-1;
+		font-weight: $regular;
+		color: var(--grouptitlecolor);
+		text-transform: none;
+	}
+	
+	p {
+		font-size: $size-6;
+		margin: 1em 0;
+	}
+	
+	img {
+		float: left;
+		margin: 1em 2em 0 0;
+		width: 200px;
+	}
+	
+}
+
+
+.oapen-article {
+	
+	background-color: var(--articlebgcolor);
+	padding: 1rem 2rem 2rem;
+	
+	.breadcrumb + & {
+		margin-top: -1.5rem;
+	}
+	
+	/*
+	@at-root .column & {
+		padding: var(--columnGap);
+		margin: 0 calc(var(--columnGap) * -1);
+	}
+	*/	
+	
+	.title.is-4 {
+		@extend ._introcaption_;
+		margin-top: 2rem;
+		margin-bottom: .75rem;
+	}
+	
+	h1.title {
+		margin-bottom: 2.5rem;
+		font-family: $sans;
+		font-size: $size-1;
+		font-weight: $regular;
+		color: var(--grouptitlecolor);
+		text-transform: none;
+	}	
+	
+	.oapen-article-pubdate {
+		font-family: $mono;
+		font-weight: $medium;
+		font-size: 1.09rem;
+	}
+	
+	.oapen-article-body {
+		padding-top: 1.5rem;
+	}
+	
+}
+
+.oapen-toolkit-metadata {
+	
+	background: var(--metadatabgcolor);
+	color:	var(--metadatatextcolor);
+	font-weight: $medium;
+	
+	a {
+		color: var(--metadatalinkcolor)
+	}
+	
+	.oapen-metadataheading {
+		color: var(--metadatacaptioncolor);
+		text-transform: uppercase;
+		font-weight: $semibold;
+	}
+
+	@at-root .column & {
+		padding: $gap;
+	}	
+	
+	ul, ol {
+		margin-left: 1em;
+	}
+	
+}
+
+
+
+
+.oapen-label-doi {
+	a {
+		font-weight: $bold;
+		background-color: $grey_5;
+		color: #fff;
+		padding: 2px 10px;
+		border-radius: 9999px;
+	}
+}
+
+.oapen-label-translate {
+	a, span {
+		font-weight: $semibold;
+		color: $grey_5;
+		cursor: pointer;
+		i {
+			color: var(--grouptitlecolor)
+		}	
+	}
+}
+
+.oapen-translation-msg {
+	width: 100%;
+	font-weight: $bold;
+}
+
+.oapen-sel-language {
+	
+	@media screen and (min-width: $tablet) {
+		column-count: 3;
+	}	
+}
+
+
+.oapen-prevnext {
+	
+	display: flex; 
+	justify-content: space-between; 
+	margin: 1rem 0;
+	font-size: 95%;
+	font-weight: $semibold;
+
+	.oapen-prevarticle {
+		margin-right: .5em;
+		min-width: 40%;
+		text-align: left;
+		@include fa-before('\f104', $valign:baseline);
+	}
+	.oapen-nextarticle {
+		margin-left: .5em;
+		min-width: 40%;
+		text-align: right;
+		@include fa-after('\f105', $valign:baseline);
+		
+		&:first-child { // prevarticle not available
+			width: 100%;	
+		}
+	}
+	
+}
+
+
+.oapen-glossary {
+	
+	.oapen-glossary-list ul {
+		line-height: 1.75;
+		list-style-type: circle;
+		list-style-position: inside;
+	}
+} 
+
+
+// search results
+.oapen-search-list-empty {
+	margin: .75rem 0;
+}
+
+.oapen-search-list {
+	
+	max-width: 55em;
+	
+	li {
+		margin: .75em 0 2em 0;
+		
+		a {
+			color: #aaa;
+			font-weight: $regular;
+			&:hover {
+				color: $link-hover;
+			}
+		}
+		
+		h3 {
+			font-size: $h2size;
+			margin: .25em 0;
+			font-weight: $medium;
+		}
+	}
+	
+	.oapen-search-list-similar {
+		
+		.oapen-search-list-similar-header {
+			color: #999;
+			margin: 0 0 .75em 0;	
+		}	
+			
+		.oapen-search-list-item-body {
+			padding-left: 1.5em;
+			border-left: dotted 2px #bbb;
+			font-size: 90%;
+			h3 {
+				font-size: $h3size;
+			}
+		}	
+	}
+
+}
+
+
+.oapen-table-wrapper {
+	
+	margin: 1em 0 2em 0;
+	
+	/* Do NOT remove media query: this doesn't work
+	for flex layouts, so can only be used on the small mobile layout
+	(usually the only place where it is needed too).*/  
+	@media screen and (max-width: $tablet) { 
+	
+		overflow-x: auto;
+		
+		table td {
+			min-width: 15em;
+		}
+	}		
+}	
+
+.oapen-table-swipe {
+
+	display: none;
+	font-size: 85%;
+	background: #f4f4f4;
+	white-space: nowrap;
+	@include fa-before('\f177', 1em, .15em, bottom) {};
+	@include fa-after('\f178', 1em, .15em, bottom) {};
+
+	@media screen and (max-width: $tablet) {
+		display: block;
+		text-align: center;
+	}		
+}
+
+.oapen-error-page {
+
+	text-align: center;
+	
+	.content h1 {
+		margin: 0;
+		line-height: 1.5em;
+		font-size: 15em;
+		font-family: $mono;
+		color: #aaa;
+	}	
+}
+
+.content {
+	
+	h1,h2,h3,h4,h5 {
+		line-height: 1.25;
+	}
+}
+
+.oapen-sitemap {
+	
+	nav {
+		border-top: solid 2px $grey_5;
+	}
+	
+	ul.oapen-sitemap-list {
+		margin-left: 0;
+		list-style: none;
+	}	
+		
+}
+

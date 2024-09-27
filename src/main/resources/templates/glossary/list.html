@@ -8,28 +8,48 @@
 
 <body>
 
-	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-	<div layout:fragment="content" class="oapen-main oapen-keywords oapen-toolkit">
-	
+	<main layout:fragment="content" class="oapen-main oapen-glossary" th:classappend="${bodyClass}">
+		
 		<div class="section">
-
+		
 			<div class="container">
-			
-				<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
-
-				<div class="content oapen-primary">
+		
+				<div class="oapen-section-intro">
+				
+					<h3 class="title is-4" th:text="${sectiongroupnames[section?.groupNumber?:0]}">
+						Header
+					</h3>
 
 					<h1>Glossary</h1>
 					
-					<div th:utext="${glossaryIntro}" >
+					<th:block th:utext="${glossaryIntro}" >
 						Intro text for glossary
-					</div>
+					</th:block>
 					
-					<hr/>
-	
-					<ul class="oapen-keywords-list">
-						<li th:each="entry: ${glossary}" class="oapen-keyword-letter">
-							<div class="oapen-keyword-heading" th:text="${entry.key}">A</div>
+				</div>
+			
+			</div>
+				
+		</div>
+		
+		<!-- topics in this section -->
+		<section class="section oapen-sheet-group oapen-shallow">
+		
+			<div class="container">
+			
+				<div class="oapen-sheet">
+		
+					<!--/* th:text="${sectiongroupnames[section?.groupNumber?:0]}" */-->
+					<div class="title is-6 oapen-sheet-caption">
+						Glossary Terms
+					</div> 
+					
+					<hr class="is-hidden">
+			
+					<ul class="oapen-glossary-list columns is-multiline is-mobile">
+						<li th:each="entry: ${glossary}" 
+							class="oapen-glossary-letter column is-half-mobile is-one-third-tablet is-one-quarter-widescreen is-one-fifth-fullhd">
+							<h2 th:text="${entry.key}">A</h2>
 							<ul>
 								<li th:each="articleOutline: ${entry.value}">
 									<a th:href="@{'/glossary/article/'+${articleOutline.slug}}" th:utext="${articleOutline.title}">glossary term</a>
@@ -37,14 +57,15 @@
 							</ul>
 						</li>
 					</ul>
-
-				</div>
-
+					
+				</div>	
+			
 			</div>
+		
+		</section>
+		
+	</main>		
 
-		</div>
-
-	</div>
 
 </body>
 

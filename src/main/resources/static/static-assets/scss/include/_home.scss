@@ -1,0 +1,86 @@
+
+.oapen-home-intro {
+	
+	border-left: solid 2px $grey_5;
+	padding-left: 1em;
+	
+	.title {
+		font-family: $mono;
+		font-weight: $medium;
+		font-size: $size-4;
+		color: $grey_5;
+		text-transform: uppercase;
+		margin-bottom: .5em;
+	}
+	
+	h1.title {
+		font-family: $sans;
+		font-weight: $regular;
+		font-size: $size-1;
+		color: $grey_5;
+		text-transform: none;
+	}
+	
+	p {
+		font-size: $size-6;
+		margin: 1em 0;
+	}
+	
+}
+
+
+.oapen-home-spotlight {
+	
+	.oapen-spotlight-caption {
+		font-family: $mono;
+		font-weight: $semibold;
+		color: $brown_1;
+		text-transform: uppercase;
+		padding-bottom: 4px;
+		border-bottom: solid 2px $brown_1;
+		margin-bottom: .5em;
+	}
+	
+	h2.title {
+		font-family: $condensed;
+		font-weight: $medium;
+		color: $brown_1;
+		a {
+			color: $brown_1;
+		}
+	}
+}
+
+
+
+.oapen-home-infobox {
+	
+	&>div {
+		margin-bottom: 1.5rem;
+		overflow-x: hidden;
+	}
+	
+	@media screen and (min-width: $desktop) {
+		border: solid 1px #ccc;
+		padding: 1rem;
+		margin-top: -1rem;
+		box-shadow: 3px 3px 6px -3px #666;
+	}	
+	
+	.oapen-home-infobox-caption {
+		font-family: $mono;
+		font-weight: $semibold;
+		color: $blue_1;
+		text-transform: uppercase;
+		padding-bottom: 4px;
+		border-bottom: solid 2px $grey_5;
+		margin-bottom: 1em;
+	}
+	
+	a {
+		color: $grey_5;
+		font-weight: bold; 
+	}
+	
+}
+

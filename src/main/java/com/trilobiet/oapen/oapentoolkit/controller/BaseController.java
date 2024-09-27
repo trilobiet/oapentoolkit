@@ -16,7 +16,6 @@ import com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.TopicServic
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
-import com.trilobiet.oapen.oapentoolkit.rss.RssService;
 
 @Controller
 public class BaseController {
@@ -37,9 +36,6 @@ public class BaseController {
 
 	@Autowired
 	protected FileService<FileImp> fileService;
-
-	@Autowired
-	protected RssService rssService;
 
 	@Autowired
 	protected Environment environment;	

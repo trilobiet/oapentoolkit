@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Infobox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="infobox">
+
+	<div>
+		<div class="title is-7 oapen-home-infobox-caption">Initiators</div>
+		<hr class="is-hidden">
+		<a href="https://www.oapen.org">
+			<img th:src="@{/static-assets/images/layout/oapenlogo.png}" alt="OAPEN Logo" width="100">
+		</a>
+	</div>		
+	
+	<div>
+		<div class="title is-7 oapen-home-infobox-caption">Knowledge base</div>
+		<hr class="is-hidden">
+		<a href="https://knowledgebase.oabooks-toolkit.org">
+			<span class="is-size-5">&#9679;&#9632;&#9650;</span>
+			<br>
+			knowledgebase.oabooks-toolkit.org
+		</a>
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

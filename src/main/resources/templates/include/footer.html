@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="sitefooter">
+
+	<div class="columns oapen-footer-columns">
+
+  		<div class="column oapen-footer-nav">
+
+  			<ul class="menu-list">
+  			
+				<li>
+					<a class="navbar-item" th:href="@{'/'}">
+						Toolkit Home
+					</a>
+				</li>
+
+				<li th:each="mnusection: ${footerSections}">
+					<a class="navbar-item" th:href="@{'/'+${mnusection.slug}}"
+					   th:text="${mnusection.name}">
+					   Footer Menu Item
+					</a>
+				</li>
+				
+			</ul>	
+				
+  			<ul class="menu-list">
+
+				<li th:each="mnusection: ${headerSections}">
+					<a class="navbar-item" th:text="${mnusection.name}"
+					   th:href="@{'/'+${mnusection.slug}}">
+						Footer menu item 2
+					</a>
+				</li>
+				<li>
+					<a class="navbar-item" href="/article/feedback">
+						Feedback 
+					</a>
+				</li>
+				<li>
+					<a class="navbar-item" href="/sitemap">
+						Sitemap 
+					</a>
+				</li>
+
+			</ul>
+
+		</div><!-- /footer-nav -->
+
+		<div class="column oapen-footer-tools">
+
+			<div class="oapen-footer-newsletter">
+
+				<div class="title">Newsletter</div>
+				<hr class="is-hidden">
+				<a href="http://eepurl.com/g5fuFr">
+					<i class="fa-regular fa-envelope-open-text fa-xl"></i>
+					&nbsp; subscribe to our newsletter
+				</a>
+
+			</div>
+
+			<div class="oapen-footer-social">
+
+				<div class="title">Follow us</div>
+				<hr class="is-hidden">
+				<ul>
+					<li>
+						<a href="https://twitter.com/oapenbooks">
+							<i class="fa-regular fa-brands fa-square-x-twitter fa-xl"></i>
+							<span class="is-sr-only">Twitter</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/company/the-oapen-open-access-books-toolkit/">
+							<i class="fa-regular fa-brands fa-linkedin fa-xl"></i>
+							<span class="is-sr-only">LinkedIn</span>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+			
+
+			<div class="oapen-footer-download" th:if="${sitepdf}">
+
+				<div class="title">Download website</div>
+				<hr class="is-hidden">
+				<a th:href="${sitepdf}">
+					<i class="fa-regular fa-arrow-down-to-bracket fa-xl"></i>
+					<span class="is-sr-only">Download website</span>
+				</a>
+
+			</div>
+			
+			
+			<div class="oapen-footer-donate">
+					
+				<div class="title">Donate</div>
+				<hr class="is-hidden">
+	
+				<a href="/article/donate">
+					<img th:src="@{/static-assets/images/donation_qr_code.png}" 
+						alt="Donate" style="width:128px;height:128px;max-height:none;max-width:none;">
+				</a>		
+						
+			</div>			
+
+		</div>
+		
+		
+		<div class="column">
+		
+			<div class="oapen-footer-websites">
+		
+				<div class="title">Websites</div>
+				<hr class="is-hidden">
+	
+				<p>
+					OAPEN Home: <a href="https://www.oapen.org">www.oapen.org</a>
+					<br>
+					OA Books Toolkit: <a href="https://www.oabooks-toolkit.org/">www.oabooks-toolkit.org</a>
+					<br>
+					DOAB: <a href="https://www.doabooks.org">www.doabooks.org</a>
+				</p>
+				
+			</div>	
+		
+			<div class="oapen-footer-licence">
+		
+				<div class="title">Licence</div>
+				<hr class="is-hidden">
+	
+				<p>
+					<a href="https://creativecommons.org/licenses/by/4.0/">
+						<img th:src="@{/static-assets/images/ccby.png}" width="100" alt="CC-BY">
+					</a>
+					<br>
+					If not noted otherwise all contents are available under 
+					Attribution 4.0 International (CC BY 4.0)
+				</p>
+				
+			</div>	
+
+			<div class="oapen-footer-fundedby">
+					
+				<img th:src="@{/static-assets/images/EN-Funded-by-the-EU-POS.jpg}" alt="Funded by the European Union"
+				width="200">
+						
+			</div>			
+
+		</div>
+		
+
+		<div class="column oapen-footer-addresses">
+
+			<hr class="is-hidden">
+
+			<div>
+				<a href="https://www.oapen.org">OAPEN</a> is based in the Netherlands, with its registered office in the National Library in The Hague.
+			</div>
+
+			<div>
+				Director: Niels Stern
+			</div>
+
+			<div>
+				<address>
+					OAPEN Foundation
+					<br>
+					Prins Willem-Alexanderhof 5
+					<br>
+					2595 BE The Hague
+				</address>
+			</div>
+
+		</div>
+
+
+	</div><!-- /footer columns -->
+
+
+	<div class="content has-text-centered">
+
+		<div class="is-size-7">
+			&copy;2019-<span th:text="${#dates.year(#dates.createNow())}">2025</span>
+			OAPEN
+			|
+			<a href="https://www.trilobiet.nl">website by Trilobiet</a>
+		</div>
+
+	</div>
+
+</th:block>
+
+
+</body>
+</html>
+

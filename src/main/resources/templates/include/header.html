@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="siteheader">
+
+	<div class="columns is-vcentered">
+
+		<div class="column is-two-fifths oapen-toolkit-title">
+		
+			<div class="oapen-toolkit-logo">
+				<a href="/">
+					<img th:src="@{/static-assets/images/layout/OABTlogo_wit-shade.png}" alt="OA Books Toolkit Logo">
+				</a>
+			</div>	 
+
+		</div>
+
+		<div class="column">
+		
+			<div class="oapen-header-menu">
+
+				<ul class="oapen-header-menu-left">
+					<li th:each="mnusection: ${headerSections}" class="navbar-item is-size-5">
+						<a th:text="${mnusection.name}"
+						   th:href="@{'/'+${mnusection.slug}}">
+							Header menu item 
+						</a>
+					</li>
+					<li class="navbar-item is-size-5">
+						<a href="/article/feedback">
+							Feedback 
+						</a>
+					</li>
+				</ul>
+
+				<ul class="oapen-header-menu-right">	
+					<li>
+						<form class="field has-addons oapen-searchform-header" th:action="@{'/sitesearch'}" method="get">
+							<div class="control navbar-item is-size-5">
+								Search
+							</div>
+							<div class="control">
+								<input name="term" class="input is-primary" type="text" 
+									placeholder="" maxlength="200" title="search term">
+							</div>
+							<div class="control">
+								<button class="button is-primary">
+									<span class="icon is-small">
+	     								<i class="fas fa-search"></i>
+	   								</span>
+								</button>
+							</div>
+						</form>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

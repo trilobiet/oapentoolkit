@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Section groups on home page 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="sectiongroups" th:each="mapentry: ${sectiongroups}">
+
+	<!-- head (if odd number of sections) -->
+	<section th:each="sec: ${@viewhelpers.listHead(mapentry.value)}"
+		th:class="${'section oapen-sheet-group oapen-sectiongroup-' + mapentry.key}">
+	
+		<div class="container">
+		
+			<div class="columns">
+			
+				<!-- head (if odd number of sections) -->
+				<div class="column is-three-fifths is-offset-one-fifth">
+				
+					<div th:include="this::sectionsummary(mapentry.key, sec)" class="oapen-sheet">Section Summary</div> 
+				
+				</div>
+				
+			</div>
+			
+		</div>
+	
+	</section>
+
+	<!-- remainder (equals all if even number of sections) -->
+	<section th:if="${#lists.size(mapentry.value)>1}"
+		th:class="${'section oapen-sheet-group oapen-sectiongroup-' + mapentry.key}">
+	
+		<div class="container">
+		
+			<div class="columns is-variable is-8 is-multiline">
+				
+				<div class="column is-half" th:each="sec: ${@viewhelpers.listRemainder(mapentry.value)}">
+				
+					<div th:include="this::sectionsummary(mapentry.key, sec)" class="oapen-sheet">Section Summary</div> 
+				
+				</div>
+				
+			</div>
+			
+		</div>
+	
+	</section>
+
+</th:block>
+
+
+<!-- key is (0,1,2 etc) -->
+<div th:fragment="sectionsummary(key, section)">
+
+	<div class="title is-6 oapen-sheet-caption"
+	 th:text="${sectiongroupnames[__${key}__]}"></div>
+	
+	<hr class="is-hidden">
+
+	<a th:utext="*{__${section}__.description}" th:href="@{*{__${section}__.slug}}">
+		Section Description
+	</a>
+
+</div> 
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

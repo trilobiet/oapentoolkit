@@ -8,11 +8,11 @@
   
   <body>
     <!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-    <main layout:fragment="content" class="section oapen-main section-faqs">
+    <main layout:fragment="content" class="section oapen-main oapen-sitemap">
 
 		<div class="container">
 		
-			<div class="content oapen-primary">
+			<div class="content oapen-section-intro">
 			
 				<h1>Sitemap</h1>
 				
@@ -22,23 +22,17 @@
 			
 			</div>
 
-			<nav class="oapen-section-expanded oapen-toc content">
+			<nav class="oapen-section-expanded content">
 			
-				<div class="oapen-toc-header">
-					Sitemap
-				</div>
-
-				<ul class="oapen-topic-list">
+				<ul class="oapen-sitemap-list">
 				
 					<li th:each="section: ${sections}">
 
-						<h2 class="oa3pen-topic-header">
+						<h2 class="oapen-topic-header">
 							<a th:href="@{'/'+${section.slug}}" th:text="${section.name}">
 								Section name
 							</a>
 						</h2>
-						
-						<br />
 						
 						<ul>
 							<li th:each="topic: ${section.topics}">

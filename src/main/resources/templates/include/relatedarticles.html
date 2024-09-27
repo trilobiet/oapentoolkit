@@ -14,11 +14,11 @@
 
 		<aside class="oapen-related-articles" th:fragment="linked" th:if="${not #lists.isEmpty(linked)}">
 
-			<div class="is-title is-5 oapen-section-caption">Related Articles</div>
+			<div class="title is-6 oapen-sheet-caption oapen-sidebar-caption">Related Articles</div>
 			
-			<hr class="is-hidden"/>
+			<hr class="is-hidden">
 
-			<ul>
+			<ul class="oapen-toc">
 
 				<li th:each="article:${linked}">
 					<a th:href="@{'/article/'+${article.slug}}"

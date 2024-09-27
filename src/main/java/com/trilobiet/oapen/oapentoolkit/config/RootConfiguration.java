@@ -23,13 +23,12 @@ import com.trilobiet.graphqlweb.markdown2html.Md2HtmlSectionConverter;
 import com.trilobiet.graphqlweb.markdown2html.Md2HtmlSnippetConverter;
 import com.trilobiet.graphqlweb.markdown2html.Md2HtmlTopicConverter;
 import com.trilobiet.graphqlweb.markdown2html.StringFunction;
-import com.trilobiet.oapen.oapentoolkit.data.KeywordService;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticleConverter;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticleList;
 import com.trilobiet.oapen.oapentoolkit.data.TopicTocGenerator;
-import com.trilobiet.oapen.oapentoolkit.rss.RssService;
-import com.trilobiet.oapen.oapentoolkit.rss.hypotheses.HypothesesRssService;
+import com.trilobiet.oapen.oapentoolkit.translate.LibreTranslateArticleService;
+import com.trilobiet.oapen.oapentoolkit.translate.TranslateArticleService;
 import com.trilobiet.oapen.sitesearch.SiteSearchService;
 import com.trilobiet.oapen.sitesearch.mysql.MySQLSiteSearchService;
 
@@ -50,6 +49,9 @@ public class RootConfiguration {
 	
 	@Value("${url_mysql_search}")
 	private String urlMysqlSearch = "";
+	
+	@Value("${url_translate_service}")
+	private String urlTranslateService = "";
 	
 	@Bean
 	public StringFunction markdownflavour() {
@@ -109,16 +111,6 @@ public class RootConfiguration {
 		return new HtmlFileService<>(urlStrapi );
 	}
 	
-	
-	@Bean 
-	public RssService rssService() {
-		return new HypothesesRssService(urlHypotheses);
-	}
-	
-	@Bean 
-	public KeywordService keywordService() {
-		return new KeywordService(sectionDao(), articleDao());
-	}
 	@Bean
 	public GenericSectionDao<SectionImp> sectionDao() {
 		return new GenericSectionDao<>(urlStrapi, SectionImp.class, SectionList.class);
@@ -137,6 +129,11 @@ public class RootConfiguration {
 		return new MySQLSiteSearchService(urlMysqlSearch, searchfields);
 	}
 	
+	@Bean 
+	public TranslateArticleService translateArticleService() {
+		
+		return new LibreTranslateArticleService(urlTranslateService);
+	}
 	
 }
 

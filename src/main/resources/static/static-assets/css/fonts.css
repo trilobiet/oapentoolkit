@@ -1,0 +1,65 @@
+
+/* Ubuntu Sans Regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/ubuntu-sans-v2-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Ubuntu Sans Medium - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/ubuntu-sans-v2-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Ubuntu Sans Semibold - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/ubuntu-sans-v2-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Ubuntu Sans Bold - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/ubuntu-sans-v2-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+
+/* Ubuntu Sans Mono Regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/ubuntu-sans-mono-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Ubuntu Sans Mono Medium - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Ubuntu Sans Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/ubuntu-sans-mono-v1-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* Ubuntu Condensed Regular - latin */ 
+@font-face {
+  font-family: 'Ubuntu Sans Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/ubuntu-condensed-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}

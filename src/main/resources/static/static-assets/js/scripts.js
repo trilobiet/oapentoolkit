@@ -48,13 +48,50 @@ jQuery(document).ready( function() {
 	$("<div class='oapen-table-swipe'>swipe to view table</div>").insertBefore($(".oapen-table-wrapper"));
 	
 	
-	/* Shrink font size for extremely long titles */
+	/* Shrink font size for extremely long titles 
 	$('.content h1').each(function() {
 		var el= $(this);
 		var textLength = el.html().length;
 		if (textLength > 50) {
 			el.css('font-size', '2.1rem');
 		}
+	});
+	*/
+	
+	$(".oapen-sel-language").each( function() {
+		
+		var el = $(this);
+		let errormsg = "<p>Alas. Translation service currently not available.</p>"; 
+		
+		$.ajax({
+			
+			url: $(this).attr("data-src"),
+			dataType: 'json',
+			success: function (data) {
+				
+				console.log("Languages loaded: " + Object.keys(data).length);
+				
+				if(Object.keys(data).length==0) {
+					$(".oapen-sel-language-wrapper").prepend($(errormsg));
+					console.log("Translation service not available (no languages loaded)");
+				}
+				
+				else {
+					$.each(data, function(key, val) {
+						//	{"sq":"Albanian","ar":"Arabic",... ,"ur":"Urdu"}	
+						el.append($('<li/>').append($('<a>', { 
+	        				href: location.pathname + "?language=" + key,
+	        				text : val 
+	    				})));
+					});
+				}	
+			},
+			
+			error: function() {
+				$(".oapen-sel-language-wrapper").prepend($(errormsg));
+				console.log("Translation Service not available (is it running?)");
+			}
+		});		
 	});
 	
 	

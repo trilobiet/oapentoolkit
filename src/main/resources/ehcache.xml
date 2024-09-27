@@ -35,33 +35,33 @@
 		
 	<cache alias="tkFilesCache">
 		<expiry>
-			<ttl unit="seconds">3600</ttl>
+			<ttl unit="minutes">60</ttl>
 		</expiry>
 		<resources>
 			<heap unit="entries">500</heap>
 		</resources>
 	</cache>	
 
-	<cache alias="tkKeywordsCache">
+	<cache alias="tkGlossaryCache">
 		<key-type>java.lang.String</key-type>
 		<value-type>java.util.TreeMap</value-type>
 		<expiry>
-			<ttl unit="seconds">43200</ttl>
-		</expiry>
-		<resources>
-			<heap unit="entries">1000</heap>
-		</resources>
-	</cache> 
-	
-	<cache alias="tkRssCache">
-		<expiry>
-			<ttl unit="seconds">6000</ttl>
+			<ttl unit="hours">12</ttl>
 		</expiry>
 		<resources>
 			<heap unit="entries">1000</heap>
 		</resources>
 	</cache> 
 
+	<cache alias="tkTranslationsCache">
+		<expiry>
+			<ttl unit="hours">168</ttl>
+		</expiry>
+		<resources>
+			<heap unit="entries">500</heap>
+		</resources>
+	</cache> 
+	
 	<cache alias="tkSearchCache">
 		<expiry>
 			<ttl unit="seconds">300</ttl>

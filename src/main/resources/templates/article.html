@@ -10,98 +10,135 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-toolkit oapen-toolkit-article oapen-main" th:classappend="${article.cssClass}">
+	<main layout:fragment="content" th:class="oapen-main" 
+		th:classappend="${article.cssClass}">
+		
+		<div class="section">
+		
+			<div class="container">
 
-		<div class="container">
-		
-			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
-		
-			<div class="columns">
+				<div class="columns is-variable">
 			
-				<!-- main content -->
-				<div class="column is-three-quarters">
+					<div class="column is-two-thirds">
+					
+						<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
 
-					<article th:fragment="articlefull"
-						class="is-clearfix oapen-article oapen-primary" th:classappend="${article.cssClass}">
+						<div class="oapen-article">
 						
-						<div class="columns">
-						
-							<div class="column">
-							
-								<div class="oapen-article-pubdate">
-									Published  
-									<span th:text="${#temporals.format(article.published_at,'MMMM d yyyy')}">
-										July 16 2020
+							<div class="level is-mobile">
+								<!-- DOI -->
+								<div class="level-left oapen-label-doi">
+									<a th:if="${!#strings.isEmpty(article.doi)}" 
+									   th:href="${'https://doi.org/'+article.doi}" th:text="${article.doi}" />
+								</div>
+								<!-- Translate -->
+								<div class="level-right oapen-label-translate">
+								
+									<span th:if="${param.language==null}"
+									    onclick="$('.modal').addClass('is-active');">
+										Translate article 
+										<i class="fa-solid fa-language fa-2xl"></i>
 									</span>
-									| Updated  
-									<span th:text="${#temporals.format(article.updated_at,'MMMM d yyyy')}">
-										July 16 2020
-									</span>
-								</div>
-								
-								<div th:if="${!#strings.isEmpty(article.author)}" th:utext="${article.author}">
-									Author Name
-								</div>
-
-								<div th:utext="${article.content}" class="content">
-									Article content
-								</div>
-								
-								<div th:if="${!#strings.isEmpty(article.doi)}" style="font-weight:bold;font-size:90%">
-									<hr style="border-top: solid 1px #ccc"/>
-									Doi: <a th:href="${'https://doi.org/'+article.doi}" th:text="${article.doi}" />
-								</div> 
-								
-							</div>
-		
-							<div class="column is-one-quarter" th:if="${not #lists.isEmpty(article.media)}">
-
-								<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
-									<a data-fancybox="gallery" th:href="${media.url}">
-										<img th:src="${media.url}" alt="">
+									<a th:if="${msg_translate_success}"
+									   th:href="${#httpServletRequest.requestURL}">
+										Revert to english 
+										<i class="fa-solid fa-language fa-2xl"></i>
 									</a>
-								</figure>
-
+									
+								</div>
 							</div>
 							
-						</div>
+							<!-- Language picker -->							
+							<th:block th:insert="include/languagepicker :: picker"/>
+
+							<div class="oapen-translation-msg notification is-info" th:utext="${msg_translate_success}" th:if="${msg_translate_success}">
+								Translation success
+							</div>
+							<div class="oapen-translation-msg notification is-danger" th:utext="${msg_translate_failure}" th:if="${msg_translate_failure}">
+								Translation failure
+							</div>
 						
-						<div>
-							<th:block th:insert="include/snippets :: snippets"/>
-						</div>	
+							<div class="title is-4" th:text="${section?.name}">
+								PUBLISHING OA BOOKS
+							</div>					
+							
+							<h1 class="title" th:text="${article.title}">Article title</h1>
+							
+							<div class="oapen-article-pubdate">
+								Published  
+								<span th:text="${#temporals.format(article.published_at,'MMMM d yyyy')}">
+									July 16 2020
+								</span>
+								| Revised  
+								<span th:text="${#temporals.format(article.updated_at,'MMMM d yyyy')}">
+									July 16 2020
+								</span>
+								
+								<span th:if="${!#strings.isEmpty(article.author)}" th:utext="${'by ' + article.author}">
+									Author Name
+								</span>
+							</div>
 	
-					</article>
-					
-					<th:block th:insert="include/toolkitfields :: toolkitmetadata"/>
-					
-					<th:block th:insert="include/attachments :: attachments"/>
-					
-					<th:block th:insert="include/prevnext :: prevnext"/>
-
-					<div class="oapen-article-update">
-						Last edited on 
-						<span th:text="${#temporals.format(article.updated_at,'d MMMM yyyy, ''at'' HH:mm (Z)')}">
-							17 July 2020, at 11:21 (+0100).
-						</span>
+							<!-- =================== -->
+							
+							<div class="columns oapen-article-body">
+							
+								<!-- article: 1 column when no images -->							
+								<div class="column content" th:utext="${article.content}">
+								
+									Article content
+								
+								</div>
+								
+								<!-- article: extra images column when images  -->
+								<div class="column is-one-quarter" th:if="${not #lists.isEmpty(article.media)}">
+	
+									<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
+										<a data-fancybox="gallery" th:href="${media.url}">
+											<img th:src="${media.url}" th:alt="${media.name}">
+										</a>
+									</figure>
+	
+								</div>
+								
+							</div>
+							
+						</div>	
+						
+						<th:block th:insert="include/toolkitfields :: toolkitmetadata"/>
+						
+						<th:block th:insert="include/attachments :: attachments"/>
+						
+						<th:block th:insert="include/prevnext :: prevnext"/>
+									
+						<!-- =================== -->
+				
 					</div>
-				
-				</div>
-			
-				<!-- sidebar -->
-				<div class="column">
-				
-					<th:block th:insert="include/currentsection :: topics"/>
-					<!--/* Hide if only one topic: th:if="${#lists.size(section.topics)>1}" */-->
 					
-					<th:block th:insert="include/relatedarticles :: linked"/>
+					<div class="column oapen-sidebar">
 					
-					<th:block th:insert="include/keywords :: keywords"/>
-
+						<th:block th:insert="include/currentsection :: topics"/>
+						<!--/* Hide if only one topic: th:if="${#lists.size(section.topics)>1}" */-->
+						
+						<th:block th:insert="include/relatedarticles :: linked"/>
+						
+						<!--/* <th:block th:insert="include/keywords :: keywords"/> */-->
+						
+						<th:block th:insert="include/share :: share"/>
+						
+					</div>
+					
 				</div>
-			
+				
+				<div class="oapen-snippets">
+					<th:block th:insert="include/snippets :: snippets"/>
+				</div>	
+				
+							
 			</div>
-
+		
 		</div>
+
 
 	</main>
 

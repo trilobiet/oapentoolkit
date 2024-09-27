@@ -3,13 +3,31 @@
 // Modifications of or extensions to Bulma css
 //
 
-.breadcrumb li {
+.breadcrumb {
 	
-	overflow: hidden;
+	@extend ._subcaption_;
 	
-	a {
-		display: inline-block;
+	ul {
+		flex-wrap: nowrap;
+	}
+	
+	li {
+	
 		overflow: hidden;
-		text-overflow: ellipsis;
-	}		
+		
+		a {
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			color: $breadcrumb_link_color;
+			
+			&.oapen-breadcrumb-article {
+				text-transform: none;
+			}
+		}
+		
+		&+li:before {
+			content: "|";
+		}		
+	}	
 }	

@@ -66,4 +66,17 @@ public class OapenHelpers extends ViewHelpers {
 		return l;
 	}
 	
+	
+	public static List<?> listHead(List<?> in) {
+		
+		return in.subList(0, in.size()%2);
+	}
+	
+	
+	public static List<?> listRemainder(List<?> in) {
+		
+		return in.subList(in.size()%2, in.size());
+	}
+	
+	
 }

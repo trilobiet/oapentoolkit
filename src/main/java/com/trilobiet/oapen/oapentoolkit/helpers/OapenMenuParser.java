@@ -16,7 +16,7 @@ public class OapenMenuParser<S extends Section> {
 	
 	public List<S> getSectionsForHeader() {
 		
-		return getMenu(3);
+		return getMenu(0);
 	}
 
 	public List<S> getSectionsForMainLeft() {

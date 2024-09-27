@@ -16,7 +16,7 @@ import com.trilobiet.graphqlweb.datamodel.comparator.ArticleTitleComparator;
 public class TopicTocGenerator {
 	
 	// not static, so we can cache
-	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
+	@Cacheable(value="tkGlossaryCache", key="#root.methodName")
 	public Map<Character, Collection<ArticleOutline>> alphabetizedToc(Topic topic) {
 		
 		Stream<ArticleOutline> v2 = topic.getArticles().stream();

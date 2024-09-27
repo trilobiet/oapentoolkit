@@ -18,17 +18,19 @@
 	<!-- spotlights -->
 	<div class="column is-half-desktop oapen-home-spotlight" th:each="article: ${spotlights}">
 
-		<div class="title is-6 oapen-section-caption">Spotlight</div>
+		<div class="title is-7 oapen-spotlight-caption">Spotlight</div>
 		
-		<hr class="is-hidden"/>
+		<hr class="is-hidden">
 
-		<h2 class="title is-5">
+		<h2 class="title is-4">
 			<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">Title</a>
 		</h2>
 
 		<th:block th:utext="${article.summary}">
-			Showcase dummy text
+			Spotlight dummy text
 		</th:block>
+		
+		<a th:href="@{'/article/'+${article.slug}}" class="oapen-readmore">read more&hellip;</a>
 
 	</div>
 

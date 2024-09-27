@@ -1,5 +1,156 @@
 @charset "utf-8";
 
+// color aliases 
+// -----------------------------------------------------------------
+$black_1: #000000; 
+$white_1: #ffffff; 
+
+$yellow_1: #ffe600; 
+$yellow_2: #fff380;
+$yellow_3: #ffffee;
+$yellow_4: #b8860b;
+
+$grey_5: #505050;
+$grey_14: #eee;
+
+$brown_1: #c75423; 
+$brown_2: #786c66; 
+
+$green_1: #00801f; 
+$green_2: #b5ffc2; 
+$green_3: #f0fff3;  
+
+$blue_1: #008aa1;  
+$blue_2: #b5f1ff;;
+$blue_3: #eeffff;
+$blue_4: #4444AA;
+
+
+// color assignments
+// -----------------------------------------------------------------
+$body_bg_color: $white_1;
+
+$header_bg_color: $yellow_1;
+$header_menu_bg_color: $yellow_2;
+
+$mainmenu_bg_color: $grey_5;
+$mainmenu_researchers_text_color: $white_1;
+$mainmenu_policies_text_color: $yellow_1;
+
+$mainmenu_researchers_dropdown_bg_color: $green_2;
+$mainmenu_researchers_dropdown_text_color: $green_1;
+$mainmenu_policies_dropdown_bg_color: $blue_2;
+$mainmenu_policies_dropdown_text_color: $blue_1;
+
+$introsection_title_color: $yellow_4;
+$introsection_researchers_bg_color: $green_2;
+$introsection_researchers_title_color: $green_1;
+$introsection_policies_bg_color: $blue_1;
+$introsection_policies_title_color: $blue_1;
+$introsection_spotlight_bg_color: none;
+$introsection_spotlight_caption_color: $brown_1;
+$introsection_spotlight_title_color: $brown_1;
+
+$footer_bg_color: $grey_5;
+$footer_border_color: $yellow_1;
+$footer_caption_color: $yellow_1;
+$footer_text_color: $white_1;
+$footer_menu_link_color: $white_1;
+$footer_link_color: $yellow_1;
+
+$article_bg_color: $grey_14;
+$article_researchers_bg_color: $green_3;
+$article_policies_bg_color: $blue_3;
+
+$article_metadata_caption_color: $yellow_1;
+$article_metadata_text_color: $white_1;
+$article_metadata_link_color: $yellow_1;
+
+$article_metadata_bg_color: $grey_5;
+$article_researchers_metadata_bg_color: $green_1;
+$article_policies_metadata_bg_color: $blue_1;
+
+
+// fonts & their sizes
+// see https://gwfh.mranftl.com/fonts/ubuntu-sans?subsets=latin
+// -----------------------------------------------------------------
+$sans		: "Ubuntu Sans";
+$mono		: "Ubuntu Sans Mono";
+$condensed	: "Ubuntu Sans Condensed";
+$fontawesome: "Font Awesome 6 Pro"; 
+
+$regular	: 400;
+$medium		: 500;
+$semibold	: 600;
+$bold		: 700; 
+
+
+// Bulma variable overrides
+// see https://versions.bulma.io/0.9.4/documentation
+// -----------------------------------------------------------------
+$primary: $grey_5;
+
+$link: $blue_4;
+$breadcrumb_link_color: $blue_4;
+$body-line-height: 1.5;
+
+$navbar-height : 2rem;
+$control-radius : 2px;
+$input-radius : 2px;
+
+$footer-background-color: $primary;
+$footer-color: $footer_text_color;
+$footer-padding: 1rem 1.5rem 6rem;
+
+$size-1 : 3.35rem;
+// $size-2 : 2.5rem;
+$size-3 : 2.15rem;
+$size-4 : 1.5rem;
+// $size-5 : 1.25rem;
+$size-6 : 1.05rem;
+$size-7 : 0.85rem;
+
+
+// Update Bulma's global variables
+// -----------------------------------------------------------------
+$family-sans-serif: $sans, sans-serif;
+
+$navbar-background-color: #444; 
+$navbar-item-hover-background-color: #444;
+$navbar-item-active-background-color: #444;  
+$navbar-item-active-color: #fff;  
+$navbar-item-color: #fff;
+$navbar-item-hover-color: #fff;
+
+$navbar-dropdown-arrow: #fff; 
+$navbar-dropdown-background-color: #444; 
+$navbar-dropdown-border-top: solid 0px #444;
+$navbar-dropdown-radius: 0px;
+
+// Update some of Bulma's component variables
+// -----------------------------------------------------------------
+$body-background-color: #fff;
+$body-weight: $medium; 
+$control-border-width: 2px;
+$input-border-color: #ddd; 
+$input-shadow: none; 
+
+// $navbar-box-shadow-size 	size 	0 2px 0 0 	
+$navbar-box-shadow-color: #000;
+
+$section-padding: 1.5rem;  
+
+$breadcrumb-item-color : $black_1;
+//$breadcrumb-item-hover-color
+//$breadcrumb-item-active-color
+//$breadcrumb-item-padding-vertical
+$breadcrumb-item-padding-horizontal: .5em;
+$breadcrumb-item-separator-color: $black_1;
+
+
+// Below this line : OLD styles - remove when ready
+// ----------------------------------------------------------------------------
+
 // Most of the styles are client side included from oapen.org
 
 $purple: #c30000; 

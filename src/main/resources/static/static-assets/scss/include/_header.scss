@@ -1,0 +1,90 @@
+.oapen-header {
+	
+	padding: 0;
+	
+	@media screen and (min-width: $tablet) {
+		padding: 4rem 0;
+	}	
+	
+	background-color: $header_bg_color;
+	
+	.oapen-toolkit-title {
+		
+		@media screen and (max-width: $tablet) {
+			text-align: center; // small screens
+		}	
+		
+		h1 {
+			display: none;
+		}	
+	}
+	
+	.oapen-toolkit-logo {
+		padding: 1rem;
+	}
+	
+	.oapen-header-menu {
+		
+		@media screen and (min-width: $widescreen) {
+			display: flex;
+			padding: .5rem;
+			border-radius: 10px;
+			margin-right: 15px;
+		}
+		
+		padding: 1rem;
+		background-color: $header_menu_bg_color;
+		font-family: $condensed;
+		font-weight: $semibold;
+		
+		a {
+			color: $black_1;
+		}
+	}
+	
+	.oapen-header-menu-left {
+		
+		justify-content: flex-start;
+		flex-grow: 1;	
+		display: flex;
+		
+		.navbar-item {
+			padding-left: 1rem;
+			padding-right: 1rem;
+			text-transform: uppercase;
+			a {
+				color: $grey_5;
+				&:hover {
+					color: $black_1;
+				}
+			}
+		}	
+		
+		@media screen and (max-width: $tablet) {
+			justify-content: center;
+		}
+	}
+
+	.oapen-header-menu-right {
+		justify-content: flex-end;
+
+		@media screen and (max-width: $tablet) {
+		//	justify-content: center;
+		}
+	}
+	
+	.navbar-item {
+		color: $grey_5;
+	}
+	
+	.oapen-searchform-header {
+		
+		@media screen and (max-width: $tablet) {
+			justify-content: center;
+		}
+	}
+	
+}
+
+
+

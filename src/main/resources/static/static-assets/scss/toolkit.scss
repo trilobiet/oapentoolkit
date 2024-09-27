@@ -1,15 +1,20 @@
 
 @import "compass/css3";
 @import "compass";
-@import "include/mixins";
 @import "include/settings";
+@import "include/mixins";
 
-$FontAwesome: "Font Awesome 5 Pro"; 
+// Docs: https://versions.bulma.io/0.9.4/
+@import "../bulma-0.9.4/bulma.sass";
 
 /* import own dependencies 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-@import "include/bulmaextensions"; 
-@import "include/toolkit"; 
+@import "include/bulmaextensions";
+@import "include/header";  
+@import "include/mainnav";
+@import "include/home"; 
+@import "include/content";
+@import "include/footer";  
 
 // Content editor styles (class names entered in Cms)
 @import "include/userstyles";

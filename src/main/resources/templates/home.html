@@ -12,79 +12,57 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-	<main layout:fragment="content" class="oapen-main home">
+	<main layout:fragment="content" class="oapen-main oapen-home">
 
-		<section class="section oapen-home-toolkit" style="margin-top:-1rem">
+		<section class="section">
 
 			<div class="container">
-				<th:block th:insert="home/toolkit :: toolkit">
-					Toolkit hero
-				</th:block>
-			</div>
+			
+				<div class="columns">
+				
+					<div class="column is-three-fifths is-offset-one-fifth oapen-home-intro is-size-5" th:utext="${introText}">
+						Home intro text
+					</div>
+					
+				</div>
 
-		</section>
-
-		<section class="section oapen-home-intro">
-
-			<div class="container section">
-				<p class="is-size-5" th:utext="${introText}">
-					Home intro text
-				</p>
 			</div>
 
 		</section>
 		
-		<section class="section oapen-home-lifecycle">
-
-			<div class="container">
-				<th:block th:insert="home/lifecycle :: lifecycle">
-					Lifecycle
-				</th:block>
-			</div>
-
-		</section>
+		<div class="section" th:replace="home/sectiongroups :: sectiongroups">Section Groups</div>
 
 		<div class="section">
 
 			<div class="container">
 
-				<div class="columns">
+				<div class="columns is-desktop">
 
 					<div class="column">
 
-						<section class="section oapen-home-news">
+						<section class="oapen-home-spotlights">
 
-							<div class="container">
-							
-								<div class="columns is-multiline is-desktop">
+							<div class="columns is-multiline is-desktop">
 
-									<th:block th:insert="home/spotlights :: spotlights">
-										Spotlights
-									</th:block>
-									
-									<th:block th:insert="home/blogposts :: blogposts">
-										Blog Posts
-									</th:block>
-									
-								</div>	
+								<th:block th:insert="home/spotlights :: spotlights">
+									Spotlights
+								</th:block>
 								
-							</div>
+							</div>	
 
 						</section>
 
 					</div>
 
-					<div class="column is-4">
+					<div class="column is-3-desktop">
 
-						<section class="section oapen-home-news">
+						<div class="oapen-home-infobox">
 
-							<div class="container">
-								<th:block th:insert="home/socialmedia :: socialmedia">
-									Social Media
-								</th:block>
-							</div>
+							<th:block th:insert="home/infobox :: infobox">
+								Info Box
+							</th:block>
 
-						</section>
+						</div>
 
 					</div>
 

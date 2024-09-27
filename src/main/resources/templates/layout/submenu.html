@@ -17,7 +17,7 @@
 
 	<a th:text="${mnusection.name}"
 	   th:href="@{'/'+${mnusection.slug}}"
-	   class="navbar-item navbar-link"
+	   class="navbar-item navbar-link is-arrowless"
 	   th:classappend="${section!=null and mnusection.id==section.id}?'is-active'">
 		Navbar Item
 	</a>

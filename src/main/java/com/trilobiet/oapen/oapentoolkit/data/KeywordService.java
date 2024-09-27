@@ -1,5 +1,6 @@
 package com.trilobiet.oapen.oapentoolkit.data;
 
+// Currenntly not used 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +9,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import org.springframework.cache.annotation.Cacheable;
 
 import com.trilobiet.graphqlweb.dao.ArticleDao;
 import com.trilobiet.graphqlweb.dao.DaoException;
@@ -28,7 +27,7 @@ public class KeywordService {
 		this.tkarticledao = articledao;
 	}
 	
-	@Cacheable(value="tkKeywordsCache", key="#root.methodName")
+	//@Cacheable(value="tkKeywordsCache", key="#root.methodName")
 	public Map<Character, Set<String>> getKeywords() throws DaoException {
 		
 		// Optional<SectionImp> section = sectiondao.getBySlug("toolkit");

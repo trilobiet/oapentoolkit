@@ -78,6 +78,7 @@ public class TopicController extends BaseController {
 	
 	private ModelAndView selectView(Topic topic) {
 		
+		/*
 		if(topic.getArticleDisplay() != null) {
 			
 			switch( topic.getArticleDisplay() ) {
@@ -97,6 +98,11 @@ public class TopicController extends BaseController {
 		
 		// None set, choose default 
 		return new ModelAndView("topic_list_titles");
+		*/
+		
+		// Functionality disabled, always show summaries
+		return new ModelAndView("topic_list_summaries");
+		
 	}
 	
 	

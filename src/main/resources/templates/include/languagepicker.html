@@ -1,0 +1,59 @@
+
+
+
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>OApen web - Related Articles</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main class="oapen-main" layout:fragment="content">
+	
+		<div class="modal oapen-label-translate" th:fragment="picker">
+
+			<div class="modal-background" onclick="$('.modal').removeClass('is-active');"></div>
+
+			<div class="modal-content">
+
+				<div class="modal-card">
+		
+					<header class="modal-card-head">
+						<p class="modal-card-title is-info">Available languages</p>
+					</header>
+					<section class="modal-card-body">
+						<div class="content oapen-sel-language-wrapper">
+							<ul class="oapen-sel-language" data-src="/articlelanguages"></ul>
+							<p class="notification is-warning">
+								Generation of a new translation may take up some time.<br> 
+								In case of timeouts please retry after a few minutes. 
+							</p>
+						</div>
+					</section>
+					<footer class="modal-card-foot">
+						<button class="button" aria-label="close" onclick="$('.modal').removeClass('is-active');">
+							Cancel
+						</button>
+					</footer>
+		
+				</div>
+
+			</div>
+
+		</div>							
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+
+  

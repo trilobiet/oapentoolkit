@@ -1,0 +1,111 @@
+
+@import "compass/css3";
+@import "compass";
+@import "include/settings";
+
+body {
+	color: #000;
+	background-color: transparent;
+	font-family: $sans;
+} 
+
+a {
+	color: #00f;
+	
+	p, div {
+		text-decoration: none;
+		color: #000;
+	}
+}
+
+footer, 
+.oapen-sidebar,	.oapen-mainnav,
+.oapen-label-translate, .oapen-prevnext, 
+.oapen-header-menu, .oapen-translation-msg,
+.oapen-breadcrumb-home, .oapen-snippets,
+.oapen-table-swipe {
+	display: none;
+}
+
+.oapen-toolkit-logo {
+	margin: 0 0 1em 0;
+	border-bottom: solid 1px #000;
+	
+	img {
+		width: 150px;
+		margin-left: -10px;
+		content: url("../images/layout/OABTlogo_grijs.png");
+	}
+}
+
+img {
+	max-width: 50%;
+} 
+
+.breadcrumb {
+
+	ul {
+		align-items: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;		
+		list-style: none;
+		padding: 0 0 .5em 0;
+		margin: 0 0 .5em 0;
+		border-bottom: solid 1px #000;
+	
+		li {
+			display: flex;
+			align-items: center;
+			margin: 0;
+			overflow: hidden;
+			
+			&:first-child { // home
+				display: none;
+			}
+			&:nth-child(2) a {
+				padding-left: 0;
+			}
+			
+			a { 
+				pointer-events: none;
+				display: inline-block;			
+				padding: 0 .75em;
+				color: #000;
+				text-decoration: none;
+				font-variant: all-small-caps;
+				font-size: 90%;
+			}
+			
+			& + li + li:before {
+			  color: #b5b5b5; 
+			  content: "|";
+			}		
+		}
+	}		
+}
+
+div.title {
+	font-variant: all-small-caps;
+}
+
+.oapen-article-pubdate {
+	font-size: 90%;	
+	font-weight: $medium;
+}
+
+.oapen-label-doi {
+	
+	margin: .5em 0;
+	
+	a::before {
+		content: "DOI: "; 
+	}
+}
+
+.oapen-metadataheading {
+	font-weight: $bold;
+}
+
+
+
