@@ -31,7 +31,8 @@
 									<a th:if="${!#strings.isEmpty(article.doi)}" 
 									   th:href="${'https://doi.org/'+article.doi}" th:text="${article.doi}" />
 								</div>
-								<!-- Translate -->
+								
+								<!--/* TRANSLATIONS CURRENTLY DISABLED  
 								<div class="level-right oapen-label-translate">
 								
 									<span th:if="${param.language==null}"
@@ -46,10 +47,13 @@
 									</a>
 									
 								</div>
+								*/-->
+								
 							</div>
 							
-							<!-- Language picker -->							
+							<!--/* TRANSLATIONS CURRENTLY DISABLED  
 							<th:block th:insert="include/languagepicker :: picker"/>
+							*/-->
 
 							<div class="oapen-translation-msg notification is-info" th:utext="${msg_translate_success}" th:if="${msg_translate_success}">
 								Translation success
@@ -133,15 +137,12 @@
 				<div class="oapen-snippets">
 					<th:block th:insert="include/snippets :: snippets"/>
 				</div>	
-				
 							
 			</div>
 		
 		</div>
 
-
 	</main>
-
 
 </body>
 </html>

@@ -20,7 +20,6 @@ import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
 import com.trilobiet.oapen.oapentoolkit.data.TKArticle;
 import com.trilobiet.oapen.oapentoolkit.translate.TranslateArticleService;
-import com.trilobiet.oapen.oapentoolkit.translate.TranslateException;
 
 @Controller
 public class ArticleController extends BaseController {
@@ -52,7 +51,9 @@ public class ArticleController extends BaseController {
 		
 		mv.addObject("bodyClass", CmsUtils.getCssClass(article));
 		
-		// Translate or not
+		// Translate or not -- TRANSLATIONS CURRENTLY DISABLED
+		mv.addObject("article", article);
+		/*
 		if (language == null) 
 			mv.addObject("article", article);
 		else try { 
@@ -64,6 +65,7 @@ public class ArticleController extends BaseController {
 			mv.addObject("article", article);
 			mv.addObject("msg_translate_failure", MSGTRANSLATEFAILURE);
 		}
+		*/
 		
 		Set<ArticleOutline> linked = articleService.getLinked(article);
 		mv.addObject("linked", linked);
