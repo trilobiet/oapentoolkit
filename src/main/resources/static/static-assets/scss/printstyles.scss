@@ -16,6 +16,23 @@ a {
 		text-decoration: none;
 		color: #000;
 	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		text-decoration: none;
+		color: #000;	
+	}
+	
+	&.oapen-readmore {
+		text-decoration: none !important;
+	}	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+	a {
+		text-decoration: none !important;
+		color: #000;
+	}
 }
 
 footer, 
@@ -87,6 +104,21 @@ img {
 
 div.title {
 	font-variant: all-small-caps;
+}
+
+.oapen-sheet, .oapen-home-spotlight {
+	margin: 1em 0;	
+	a { 
+		text-decoration: none !important;
+	}
+}
+
+ul.oapen-article-list {
+	list-style: none;
+	padding-left: 0;
+	li {
+		padding-left: 0;
+	}
 }
 
 .oapen-article-pubdate {
