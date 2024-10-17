@@ -102,4 +102,27 @@ function lifecycle(n) {
 	alert("you clicked " + n + "!");
 }*/
 
-
+// Cookie banner stuff
+window.addEventListener("load", function() {
+	window.wpcc.init({
+		"border" : "thin",
+		"colors" : {
+			"popup" : {
+				"background" : "#336688",
+				"text" : "#ffffff",
+				"border" : "#999"
+			},
+			"button" : {
+				"background" : "#ccc",
+				"text" : "#000000"
+			}
+		},
+		"position" : "bottom",
+		"corners" : "small",
+		"transparency" : "5",
+		"content" : {
+			"href" : "/article/privacy-statement",
+			"link" : "Privacy Statement"
+		}
+	})
+})
