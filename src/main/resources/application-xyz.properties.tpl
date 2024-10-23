@@ -8,7 +8,7 @@ spring.cache.jcache.config=classpath:ehcache.xml
 
 url_feed_hypotheses=https://oapen.hypotheses.org/feed
 
-server.port=8081
+server.port=8082
 
 url_strapi=https://strapi.xyz.com/graphql
 google_analytics_id=UA-????

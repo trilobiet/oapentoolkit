@@ -61,6 +61,12 @@
 						No documents match your search terms
 					</p>
 				
+					<p th:if="${searchError}" class="oapen-search-list-empty">
+						<i class="fa-regular fa-face-thinking fa-xl"></i>
+						No documents could be retrieved - try again later 
+						(<span th:text="${searchError}">searchError</span>)
+					</p>
+
 					<ul class="oapen-search-list" th:if="${pagedResults.size()}">
 					
 						<li th:each="result,it: ${pagedResults}"
@@ -114,6 +120,7 @@
 	</main>
 
 </body>
+
 </html>
 
 

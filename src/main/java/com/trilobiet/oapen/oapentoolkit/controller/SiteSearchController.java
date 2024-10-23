@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.trilobiet.oapen.sitesearch.SiteSearchException;
 import com.trilobiet.oapen.sitesearch.SiteSearchResult;
 import com.trilobiet.oapen.sitesearch.SiteSearchService;
 
@@ -25,10 +26,18 @@ public class SiteSearchController extends BaseController {
 	public ModelAndView siteSearch( 
 			@RequestParam( value="term", defaultValue="" ) String term,
 			@RequestParam( value="page", defaultValue="0" ) Integer page
-		) throws Exception {
+		) {
 		
 		List<SiteSearchResult> searchResults = Collections.emptyList();
-		if (!term.isBlank()) searchResults = siteSearchService.search(term);
+		String searchError = "";
+		
+		if (!term.isBlank()) {
+			try {
+				searchResults = siteSearchService.search(term);
+			} catch (SiteSearchException e) {
+				searchError = e.getMessage();
+			}
+		}	
 
 		page = Math.max(page, 0);
 		int total = searchResults.size();
@@ -52,6 +61,8 @@ public class SiteSearchController extends BaseController {
 		mv.addObject("pageSize", PAGE_SIZE);
 		mv.addObject("nextPage", nextPage);
 		mv.addObject("prevPage", prevPage);
+		
+		if (!searchError.isEmpty()) mv.addObject("searchError", searchError);
 		
 		return mv;
 	}

@@ -48,6 +48,7 @@ public class HomeController extends BaseController {
 			sections = sectionService.getSections().stream()
 				.filter(sec -> sec.getGroupNumber() > 0) // group 0 is reserved for special menu items
 				.filter(sec -> sec.isPublish())	
+				.filter(sec -> sec.isHasMenuItem())
 				.collect(Collectors.groupingBy(sec -> sec.getGroupNumber())
 			);
 
@@ -56,24 +57,6 @@ public class HomeController extends BaseController {
 		}	
 
 		mv.addObject("sectiongroups", sections);
-		
-		
-		/*
-		try {
-			Optional<SectionImp> tkSection = sectionService.getSectionBySlug("lifecycle");
-			if( tkSection.isPresent() ) {
-				List<Topic> tktopics = tkSection.get().getTopics();
-				mv.addObject("toolkitsection",tkSection.get());
-				mv.addObject("toolkittopics",tktopics);
-			}
-			else {
-				mv.addObject("toolkitsection",null);
-				mv.addObject("toolkittopics",null);
-			}
-		} catch (Exception e) {
-			log.error(e);
-		}
-		*/
 		
 		try {
 			List<TKArticle> spotlights = articleService.getByFieldValue("spotlight", "true");

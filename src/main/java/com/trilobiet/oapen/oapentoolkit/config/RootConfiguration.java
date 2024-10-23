@@ -125,7 +125,7 @@ public class RootConfiguration {
 	public SiteSearchService siteSearchService() {
 		
 		// Use only fields from table 'article' for which a full-text index has been created 
-		String searchfields = "title, summary, content, `references`, resources, sources, doi, author, tags, keywords";
+		String searchfields = "title, content, `references`, resources, sources, doi, author";
 		return new MySQLSiteSearchService(urlMysqlSearch, searchfields);
 	}
 	
