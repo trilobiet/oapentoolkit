@@ -162,20 +162,26 @@ main .section {
 	li {
 		margin: 0 0 0 .8rem;
 		@include fa-before('\f105', .6rem, .2rem, $valign:baseline) {
+			float: left;
 			margin-left: -.8rem;
+			margin-top: 5px;
 		}
 	}
 
 	&.oapen-toc-articles {
 		
-		a {
+		a.oapen-toc-articles-title {
+			display: inline-block;
+			margin-bottom: .2em;
 			font-weight: bold;
 			color: var(--grouptitlecolor);
 		}
 		
 		li {
-			margin: 0 0 .3rem .8rem;
+			margin: 0 0 .5rem .8rem;
 			@include fa-before('\f105', .6rem, .2rem, $valign:baseline){
+				float: left;
+				margin-top: 5px;
 				margin-left: -.8rem;
 				font-weight: bold;
 				color: var(--grouptitlecolor);
@@ -183,6 +189,39 @@ main .section {
 		}
 	}
 }
+
+
+.oapen-toc-flat {
+	
+	margin: .75em 0;
+	
+	a {
+		color: $grey_5;
+		&:hover {
+			color: $link;
+		}		 
+	}
+
+	li {
+		margin: 0;
+	}
+
+	&.oapen-toc-articles {
+		
+		a.oapen-toc-articles-title {
+			display: inline-block;
+			margin-bottom: .2em;
+			font-weight: bold;
+			color: var(--grouptitlecolor);
+		}
+		
+		li {
+			margin: 0 0 1rem 0;
+		}
+	}
+}
+
+
 
 
 .oapen-article-list, .oapen-topic-list {
@@ -215,6 +254,13 @@ main .section {
 		}	
 	}
 }
+
+
+.oapen-article-share li {
+	
+	margin-right: .5em;
+}
+
 
 
 .oapen-section-intro, 

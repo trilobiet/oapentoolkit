@@ -1,0 +1,83 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${section.name}">section name</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="oapen-main" th:classappend="${bodyClass}">
+		
+		<div class="section">
+		
+			<div class="container">
+		
+				<div class="oapen-section-intro">
+				
+					<h3 class="title is-4">Introduction</h3>
+
+					<div class="content" th:utext="${section.description}">
+						Section description
+					</div>
+					
+				</div>
+			
+			</div>
+				
+		</div>
+		
+		<!--/* topics in this section: loop step = 2 */-->
+		<section th:each="i: ${#numbers.sequence(0,sectiontopics.size-1,2)}"
+			class="section oapen-sheet-group oapen-shallow oapen-sectiongroup-0">
+
+			<div class="container">
+
+				<div class="columns is-variable is-4 is-multiline">
+			
+					<!--/* left column i */-->
+					<div class="column is-half" th:include="this::topiclist(${sectiontopics[i]})"></div>
+					
+					<!--/* right column i+1, if available */-->
+					<th:block th:if="${i<sectiontopics.size-1}">
+					<div class="column is-half" th:include="this::topiclist(${sectiontopics[i+1]})"></div>
+					</th:block>	
+					
+				</div>
+				
+			</div>			
+			
+		</section>
+
+	</main>
+
+	<div th:fragment="topiclist(topic)">
+	
+		<div class="oapen-sheet">
+
+			<div class="title is-6 oapen-sheet-caption"	th:text="${topic.name}">Topic Name</div> 
+			
+			<hr class="is-hidden">
+			
+			<ul class="oapen-toc-flat oapen-toc-articles">
+				<li th:each="article, istat: ${topic.articles}">
+					<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}"
+		   				th:text="${article.title}" class="oapen-toc-articles-title">article title</a>
+		   			<div th:utext="${article.summary}">Summary</div>	
+				</li>
+			</ul>
+			
+		</div>	
+	
+	</div> 
+
+</body>
+
+</html>
+
+
+
+

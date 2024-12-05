@@ -24,10 +24,12 @@ import com.trilobiet.oapen.oapentoolkit.translate.TranslateArticleService;
 @Controller
 public class ArticleController extends BaseController {
 	
+	/*
 	final private String MSGTRANSLATESUCCESS = 
 		"The text below is an automatically generated translation";
 	final private String MSGTRANSLATEFAILURE = 
 		"Could not retrieve a translation!";
+	*/	
 	
 	@Autowired
 	protected TranslateArticleService translateArticleService;

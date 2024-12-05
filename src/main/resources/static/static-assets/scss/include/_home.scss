@@ -1,8 +1,10 @@
 
 .oapen-home-intro {
 	
-	border-left: solid 2px $grey_5;
-	padding-left: 1em;
+	@media screen and (min-width: $tablet) {
+		border-left: solid 2px $grey_5;
+		padding-left: 1em;
+	}
 	
 	.title {
 		font-family: $mono;

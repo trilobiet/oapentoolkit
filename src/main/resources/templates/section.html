@@ -85,11 +85,12 @@
 							<ul class="oapen-toc oapen-toc-articles">
 								<li th:each="article, istat: ${topic.articles}" th:if="${istat.index<2}">
 									<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}"
-						   				th:text="${article.title}">article title</a>
-						   			<div th:text="${article.summary}">Summary</div>	
+						   				th:text="${article.title}" class="oapen-toc-articles-title">article title</a>
+						   			<div th:utext="${article.summary}">Summary</div>	
 								</li>
 								<li th:if="${topic.articles.size>2}">
-									<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}}">more</a>
+									<a th:href="@{${'/'+section.slug}+'/'+${topic.slug}}" class="oapen-toc-articles-title"
+									>more</a>
 								</li>
 							</ul>
 						
