@@ -22,4 +22,3 @@ logging.file.name=${user.home}/websites/logs/oabooks-toolkit.log
 logging.level.root=INFO
 logging.level.com.trilobiet.oapen.oapentoolkit=INFO
 logging.logback.rollingpolicy.max-history=40
-
