@@ -22,7 +22,7 @@ import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicList;
 
 public class ToolkitDataTest {
 	
-	private final String host = "https://strapi-oatoolkit.trilobiet.eu/graphql";  
+	private final String host = "https://strapi.oabooks-toolkit.org/graphql";  
 
     @Test // Integration test
 	public void keywordsTest() throws IOException, DaoException {
