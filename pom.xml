@@ -96,7 +96,7 @@
 		<dependency>
 			<groupId>com.trilobiet</groupId>
 			<artifactId>graphqlweb</artifactId>
-			<version>0.0.46</version>
+			<version>0.0.47</version>
 		</dependency>
 
 		<!--
@@ -114,7 +114,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
--->
+		-->
 
 		<!-- Rome Java RSS feeds -->
 		<dependency>
@@ -167,7 +167,6 @@
         
     </profiles>	
 	
-	
 
 	<build>
 	
@@ -181,6 +180,29 @@
 					<executable>true</executable>
 				</configuration>		
 			</plugin>
+			
+			<!-- install home brewn artifacts locally -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<groupId>com.trilobiet</groupId>
+					<artifactId>graphqlweb</artifactId>
+					<version>0.0.47</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/dependencies/graphqlweb-0.0.47-jar-with-dependencies.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>			
 
 		</plugins>
 

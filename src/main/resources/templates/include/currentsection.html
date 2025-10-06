@@ -22,7 +22,7 @@
 		
 			<ul class="oapen-toc">
 
-				<li th:each="topic:${section.topics}">
+				<li th:each="topic:${section?.topics}">
 					<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}}" th:text="${topic.name}">
 						Topic name
 					</a>

@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.cache.annotation.Cacheable;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -87,7 +85,7 @@ public class LibreTranslateArticleService implements TranslateArticleService {
 	}
 
 	
-	private TKArticle copyArticle(TKArticle article) throws JsonMappingException, JsonProcessingException {
+	private TKArticle copyArticle(TKArticle article) throws IOException {
 		
 		TKArticle deepCopy = mapper.readValue(mapper.writeValueAsString(article), TKArticle.class);
 		
